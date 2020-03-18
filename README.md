@@ -5,7 +5,8 @@ This repository contains data files and R code for reproducibilty of the work:
 **Variable selection in microbiome compositional data analysis**
 
 Susin A., Wang Y., Lê Cao KA., Calle ML.
-Submitted (January 2020)
+
+(Submitted January 2020)
 
 **Abstract:**
 Though variable selection is one of the most relevant tasks in microbiome analysis, e.g. for
