@@ -1,0 +1,181 @@
+Firmicutes	annotation	Firmicutes	
+Firmicutes	annotation_background_color	#009E73	
+Firmicutes	annotation_font_size	5	
+Bacteroidetes	annotation	Bacteroidetes	
+Bacteroidetes	annotation_background_color	#CC79A7	
+Bacteroidetes	annotation_font_size	5	
+Clostridia	annotation	Clostridia	
+Clostridia	annotation_background_color	#009E73	
+Clostridia	annotation_font_size	5	
+Bacteroidia	annotation	Bacteroidia	
+Bacteroidia	annotation_background_color	#CC79A7	
+Bacteroidia	annotation_font_size	5	
+Clostridiales	annotation	Clostridiales	
+Clostridiales	annotation_background_color	#009E73	
+Clostridiales	annotation_font_size	5	
+Bacteroidales	annotation	Bacteroidales	
+Bacteroidales	annotation_background_color	#CC79A7	
+Bacteroidales	annotation_font_size	5	
+Ruminococcaceae	annotation	Ruminococcaceae	
+Ruminococcaceae	annotation_background_color	#009E73	
+Ruminococcaceae	annotation_font_size	5	
+S24-7	annotation	S24-7	
+S24-7	annotation_background_color	#CC79A7	
+S24-7	annotation_font_size	5	
+Prevotellaceae	annotation	Prevotellaceae	
+Prevotellaceae	annotation_background_color	#CC79A7	
+Prevotellaceae	annotation_font_size	5	
+Lachnospiraceae	annotation	Lachnospiraceae	
+Lachnospiraceae	annotation_background_color	#009E73	
+Lachnospiraceae	annotation_font_size	5	
+[Mogibacteriaceae]	annotation	[Mogibacteriaceae]	
+[Mogibacteriaceae]	annotation_background_color	#009E73	
+[Mogibacteriaceae]	annotation_font_size	5	
+Oscillospira	annotation	Oscillospira	
+Oscillospira	annotation_background_color	#009E73	
+Oscillospira	annotation_font_size	5	
+Ruminococcus	annotation	Ruminococcus	
+Ruminococcus	annotation_background_color	#009E73	
+Ruminococcus	annotation_font_size	5	
+total_plotted_degrees	340		
+start_rotation	270		
+ring_internal_separator_thickness	1	0.5	
+ring_label	1	selbal	
+ring_label_color	1	#388ECC	
+ring_label_font_size	1	7	
+ring_internal_separator_thickness	2	0.5	
+ring_label	2	clr_lasso	
+ring_label_color	2	#F68B33	
+ring_label_font_size	2	7	
+ring_internal_separator_thickness	3	0.5	
+ring_label	3	coda_lasso	
+ring_label_color	3	#C2C2C2	
+ring_label_font_size	3	7	
+ring_internal_separator_thickness	4	0.5	
+ring_label	4	outside	
+ring_label_color	4	w	
+ring_label_font_size	4	7	
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_color	1	#388ECC
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_color	1	#388ECC
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_color	1	#388ECC
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_color	1	#388ECC
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_color	1	#388ECC
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_color	1	#388ECC
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_color	1	#388ECC
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_color	1	#388ECC
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_color	1	#388ECC
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_color	1	#388ECC
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_color	1	#388ECC
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_color	1	#388ECC
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_color	1	#388ECC
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_color	2	#F68B33
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_color	2	#F68B33
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_color	2	#F68B33
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_color	2	#F68B33
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_color	2	#F68B33
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_color	2	#F68B33
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_color	2	#F68B33
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_color	2	#F68B33
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_color	2	#F68B33
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_color	2	#F68B33
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_color	2	#F68B33
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_color	2	#F68B33
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_color	2	#F68B33
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_color	3	#C2C2C2
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_color	3	#C2C2C2
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_color	3	#C2C2C2
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_color	3	#C2C2C2
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_color	3	#C2C2C2
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_color	3	#C2C2C2
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_color	3	#C2C2C2
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_color	3	#C2C2C2
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_color	3	#C2C2C2
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_color	3	#C2C2C2
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_color	3	#C2C2C2
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_color	3	#C2C2C2
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_color	3	#C2C2C2
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_color	4	w
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_color	4	w
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_color	4	w
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_color	4	w
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_color	4	w
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_color	4	w
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_color	4	w
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_color	4	w
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_color	4	w
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_color	4	w
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_color	4	w
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_color	4	w
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_color	4	w
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_alpha	1	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_alpha	1	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_alpha	1	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_alpha	1	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_alpha	1	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_alpha	1	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_alpha	1	0
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_alpha	1	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_alpha	1	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_alpha	1	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_alpha	1	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_alpha	1	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_alpha	1	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_alpha	2	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_alpha	2	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_alpha	2	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_alpha	2	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_alpha	2	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_alpha	2	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_alpha	2	1
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_alpha	2	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_alpha	2	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_alpha	2	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_alpha	2	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_alpha	2	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_alpha	2	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_alpha	3	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_alpha	3	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_alpha	3	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_alpha	3	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_alpha	3	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_alpha	3	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_alpha	3	1
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_alpha	3	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_alpha	3	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_alpha	3	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_alpha	3	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_alpha	3	1
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_alpha	3	1
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	ring_alpha	4	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	ring_alpha	4	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	ring_alpha	4	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	ring_alpha	4	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	ring_alpha	4	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	ring_alpha	4	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	ring_alpha	4	0
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	ring_alpha	4	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	ring_alpha	4	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	ring_alpha	4	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	ring_alpha	4	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	ring_alpha	4	0
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	ring_alpha	4	0
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253	clade_marker_size	50	
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479	clade_marker_size	50	
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222	clade_marker_size	50	
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265	clade_marker_size	25	
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745	clade_marker_size	25	
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764	clade_marker_size	25	
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322	clade_marker_size	50	
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599	clade_marker_size	50	
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038	clade_marker_size	50	
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384	clade_marker_size	25	
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851	clade_marker_size	25	
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339	clade_marker_size	25	
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272	clade_marker_size	25	
+261265	clade_marker_color	#555555	
+1108745	clade_marker_color	#555555	
+462764	clade_marker_color	#555555	
+401384	clade_marker_color	#555555	
+300851	clade_marker_color	#555555	
+198339	clade_marker_color	#555555	
+175272	clade_marker_color	#555555	

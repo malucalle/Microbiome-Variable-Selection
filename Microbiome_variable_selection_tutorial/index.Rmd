@@ -1,0 +1,163 @@
+--- 
+title: 'Variable selection in microbiome compositional data analysis: tutorial'
+author: |
+  | Antoni Susin$^1$, Yiwen Wang$^2$, Kim-Anh Lê Cao$^2$, M.Luz Calle$^3$
+  |        
+  | $^1$Mathematical Department, UPC-Barcelona Tech, Barcelona, Spain
+  | $^2$Melbourne Integrative Genomics, School of Mathematics
+  | and Statistics, The University of Melbourne, Parkville VIC, Australia
+  | $^3$Biosciences Department, Faculty of Sciences and Technology, 
+  | University of Vic - Central University of Catalonia, Vic, Spain
+date: "`r Sys.Date()`"
+output: pdf_document
+urlcolor: blue
+bibliography: book.bib
+description: Methods comparison
+documentclass: book
+link-citations: yes
+classoption: openany
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+```{r global_options, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(dpi = 100, warning = FALSE, message = FALSE, error = FALSE, 
+                      eval = TRUE, fig.show = TRUE, fig.width = 6, 
+                      fig.height = 4, fig.align = 'center', out.width = '100%', 
+                      fig.path = './Generated_plots/')
+
+```
+
+# Introduction 
+
+This vignette supports the paper "Variable selection in microbiome compositional data analysis" by Susin *et al.* (2020) that assesses three compositional data analysis (CoDA) algorithms for microbiome variable selection:
+
+* _selbal_: a forward selection method for the identification of two groups of taxa whose balance is most associated with the response variable [@rivera2018balances].
+* _clr-lasso_: penalized regression after the centered log-ratio (clr) transformation [@zou2005regularization; @tibshirani1996regression; @le1992ridge]; 
+* _coda-lasso_: penalized log-contrast regression (log-transformed abundances and a zero-sum constraint on the regression coefficients) [@lu2019generalized; @lin2014variable]; 
+
+Among them, *coda-lasso* is not yet available as an R package, but the R code for implementing the algorithm is available on Github: 
+https://github.com/UVic-omics/CoDA-Penalized-Regression. Therefore, let us copy the repository first. We only need to copy once, after that, we can update it by fetching the last modified version. 
+
+```{r}
+# copy the repository from https://github.com/UVic-omics/CoDA-Penalized-Regression
+system('git clone https://github.com/UVic-omics/CoDA-Penalized-Regression')
+
+# fetch the last modified repository from 
+# https://github.com/UVic-omics/CoDA-Penalized-Regression
+# when you have already git clone the repository
+# system('git pull https://github.com/UVic-omics/CoDA-Penalized-Regression')
+```
+
+This vignette only displays the application of all methods on the case studies. Paper related codes and datasets including simulations are all available on GitHub: https://github.com/UVic-omics/Microbiome-Variable-Selection
+
+
+## Packages installation and loading
+
+Install then load the following packages:
+
+```{r}
+# cran.packages <- c('knitr', 'glmnet', 'ggplot2', 'gridExtra',
+#                    'UpSetR', 'ggforce')
+# install.packages(cran.packages)
+# devtools::install_github(repo = 'UVic-omics/selbal')
+
+library(knitr) # rbookdown, kable
+library(glmnet) # glmnet
+library(selbal) # selbal
+library(ggplot2) # draw selbal
+library(gridExtra) # grid.arrange
+library(UpSetR) # upset
+library(ggforce) # selbal-like plot
+library(grid) # grid.draw
+# source coda-lasso functions
+source(file = './CoDA-Penalized-Regression/R/functions_coda_penalized_regression.R')
+
+# build in functions
+source(file = 'functions.R')
+
+```
+
+## Example datasets
+
+### Crohn's disease
+
+Crohn's disease (CD) is an inflammatory bowel disease that has been linked to microbial alterations in the gut. The pediatric CD study [@gevers2014treatment] includes 975 individuals from 662 patients with Crohn’s disease and 313 without any symptoms. The processed data, from 16S rRNA gene sequencing after QIIME 1.7.0, were downloaded from Qiita [@gonzalez2018qiita] study ID 1939. The OTU table was agglomerated to the genus level, resulting in a matrix with 48 genera and 975 samples (see Table \@ref(tab:summary)).
+
+Load the data as follows:
+
+```{r}
+load('./datasets/Crohn_data.RData')
+```
+
+File "Crohn_data.RData" contains three objects: 
+
+**x_Crohn**: the abundance table, a data frame of counts with 975 rows (individuals) and 48 columns (genera)
+
+```{r}
+class(x_Crohn)
+dim(x_Crohn)
+```
+
+
+**y_Crohn**: a factor variable, indicator of disease status (CD vs. not CD)
+
+```{r}
+class(y_Crohn)
+summary(y_Crohn)
+```
+
+
+**y_Crohn_numeric**: a numerical variable with values 1 (CD) and 0 (not CD)
+
+```{r}
+class(y_Crohn_numeric)
+table(y_Crohn_numeric)
+```
+
+
+*Note*: **x_Crohn** contains no zero. The original matrix of counts (**X**) was transformed by adding one count to each matrix cell: *x_Crohn = X + 1*. The original matrix of counts can easily be recovered and other imputation methods can be applied.  
+
+
+### High fat high sugar diet in mice
+
+The study was conducted by Dr Lê Cao at the University of Queensland Diamantina Institute that investigated the effect of diet in mice. C57/B6 female black mice were housed in cages (3 animals per cage and fed with a high fat high sugar diet (HFHS) or a normal diet). Stool sampling was performed at Day 0, 1, 4 and 7. Illumina MiSeq sequencing was used to obtain the 16S rRNA sequencing data. The sequencing data were then processed with QIIME 1.9.0. For our analysis, we considered Day 1 only (HFHSday1 data). The OTU (Operational Taxonomy Units) table after OTU filtering included 558 taxa and 47 samples (24 HFHS diet and 23 normal diet) (see Table \@ref(tab:summary)). Taxonomy information is also available and reported here.
+
+```{r}
+load('./datasets/HFHSday1.RData')
+```
+
+File "HFHSday1.RData" contains three objects: 
+
+**x_HFHSday1**: the abundance table, a matrix of proportions with 47 rows (samples) and 558 columns (OTUs)
+
+```{r}
+class(x_HFHSday1)
+dim(x_HFHSday1)
+```
+
+
+**y_HFHSday1**:  a factor variable, indicator of diet (HFHS vs. normal)
+
+```{r}
+class(y_HFHSday1)
+summary(y_HFHSday1)
+```
+
+
+**taxonomy_HFHS**:  taxonomy table
+
+*Note*: **x_HFHSday1** contains no zero. Zero imputation was performed on the original abundance matrix.
+
+
+| Crohn data          || HFHSday1 data        ||
+|:-------:|:-------:|:-------:|:-------:|
+| No. of genera | 48 | No. of OTUs | 558 |
+| No. of samples | 975 | No. of samples | 47 |
+| No. of patients with CD | 662 | No. of mice with HFHS diet | 24 |
+| No. of healthy patients | 313 | No. of mice with normal diet | 23 |
+Table: (\#tab:summary) **A summary of the number of samples and number of taxa in each case study**
+
+
+

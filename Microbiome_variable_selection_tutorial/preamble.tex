@@ -1,0 +1,25 @@
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\headheight}{28pt}
+\setlength{\footskip}{25pt}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyfoot[C]{\scriptsize University of Vic - Central University of Catalonia | The University of Melbourne}
+\fancyfoot[R]{\scriptsize \thepage}
+\fancyhead[R]{\slshape\leftmark}
+\fancyhead[L]{Variable selection}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}

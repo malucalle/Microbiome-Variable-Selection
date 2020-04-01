@@ -1,0 +1,13 @@
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.290253
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..263479
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.Prevotellaceae..192222
+Bacteria.Firmicutes.Clostridia.Clostridiales.Lachnospiraceae..261265
+Bacteria.Firmicutes.Clostridia.Clostridiales.[Mogibacteriaceae]..1108745
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Ruminococcus.462764
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..265322
+Bacteria.Firmicutes.Clostridia.Clostridiales...400599
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..348038
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.401384
+Bacteria.Firmicutes.Clostridia.Clostridiales.Ruminococcaceae.Oscillospira.300851
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..198339
+Bacteria.Bacteroidetes.Bacteroidia.Bacteroidales.S24-7..175272

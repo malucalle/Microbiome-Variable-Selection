@@ -1,0 +1,19 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">Variable selection</a></li>
+      after: |
+        <li><a href="https://github.com/EvaYiwenWang/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
+    download: ["pdf"]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  toc: yes
+  toc_depth: 4
+  number_sections: yes
+

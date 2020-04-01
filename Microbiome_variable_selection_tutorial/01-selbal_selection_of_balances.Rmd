@@ -1,0 +1,132 @@
+# *Selbal*: selection of balances {#selbal}
+
+*Selbal* is a forward selection algorithm for the identification of two groups of variables whose balance is most associated with the response variable [@rivera2018balances]. *Selbal* R package is available on GitHub (https://github.com/UVic-omics/selbal) and can be installed with *devtools*: 
+
+for non-Windows users:       
+
+```{r, eval = F}
+devtools::install_github(repo = "UVic-omics/selbal")
+```
+
+for Windows users:  
+
+```{r, eval = F}
+devtools::install_url(url="https://github.com/UVic-omics/selbal/archive/master.zip", 
+                      INSTALL_opt= "--no-multiarch")
+``` 
+
+For a detailed description of *selbal* see the vignette: 
+https://htmlpreview.github.io/?https://github.com/UVic-omics/selbal/blob/master/vignettes/vignette.html
+
+
+We generated a wrapper function called *selbal_wrapper()* that will help us to handle the output of *selbal*. The *selbal_wrapper()* function is uploaded via **functions.R**.
+
+
+## Crohn case study
+
+For binary outcomes, *selbal()* requires that dependent variable **Y** is given as a factor and it implements logistic regression. If **Y** is numeric, *selbal()* implements linear regression.
+
+The dependent variable in Crohn dataset is a factor: 
+
+```{r}
+class(y_Crohn)
+```
+
+The performance measure (**logit.acc**) of the selected balance for binary outcomes is the **AUC** (default) or the proportion of explained deviance (**Dev**). For comparison with the other methods we will use **Dev** and will set the maximum number of variables (**maxV**) to be selected equal to 12 (**maxV = 12**). 
+
+```{r}
+selbal_Crohn <- selbal(x = x_Crohn, y = y_Crohn, maxV = 12, 
+                       logit.acc = 'Dev', draw = F)
+```
+
+The output of *selbal()* is a list and we can get the different elements of the list by indexing. 
+
+To visualise the results of *selbal*, we recommend the new balance representation (**global.plot2**): 
+
+```{r, fig.height = 5, fig.width = 7}
+# dev.off() # clean plots window when you run in Console
+grid.draw(selbal_Crohn$global.plot2) 
+```
+
+To improve the readability of codes and to compare more easily with the other two methods, we use *selbal_wrapper()* to handle the output from *selbal()*: 
+
+```{r}
+Crohn.results_selbal <- selbal_wrapper(result = selbal_Crohn, X = x_Crohn) 
+```
+
+The number of selected variables:
+
+```{r}
+Crohn.results_selbal$numVarSelect
+```
+
+The names of selected variables:
+
+```{r}
+Crohn.results_selbal$varSelect
+```
+
+For visualisation, we can use *selbal_like_plot()* which can also be used in other two methods (see Chapter \@ref(comparison)).
+
+```{r, fig.height = 5, fig.width = 7}
+Crohn.selbal_pos <- Crohn.results_selbal$posVarSelect
+Crohn.selbal_neg <- Crohn.results_selbal$negVarSelect
+selbal_like_plot(pos.names = Crohn.selbal_pos, neg.names = Crohn.selbal_neg, 
+                 Y = y_Crohn, selbal = TRUE, 
+                 FINAL.BAL = Crohn.results_selbal$finalBal)
+```
+
+
+## HFHS-Day1 case study
+
+The analysis on HFHSday1 data is similar to Crohn data.
+
+First, we need to check if the dependent variable **Y** is a factor.
+
+```{r}
+class(y_HFHSday1)
+```
+
+We set the maximum number of variables to be selected equal to 2 (**maxV = 2**) according to tuning function *selbal.cv()* (not shown here) [@rivera2018balances]:
+
+```{r}
+selbal_HFHSday1 <- selbal(x = x_HFHSday1, y = y_HFHSday1, maxV = 2, 
+                          logit.acc = 'Dev', draw = F)
+```
+
+We then use *selbal_wrapper()* to handle the results:
+
+```{r, message = F, error = F, warning = F}
+HFHS.results_selbal <- selbal_wrapper(result = selbal_HFHSday1, X = x_HFHSday1) 
+```
+
+The number of selected variables:
+
+```{r}
+HFHS.results_selbal$numVarSelect
+```
+
+The names of selected variables:
+
+```{r}
+HFHS.results_selbal$varSelect
+```
+
+For visualisation, we then use *selbal_like_plot()*.
+
+```{r, fig.height = 5, fig.width = 7}
+HFHS.selbal_pos <- HFHS.results_selbal$posVarSelect
+HFHS.selbal_neg <- HFHS.results_selbal$negVarSelect
+selbal_like_plot(pos.names = HFHS.selbal_pos, neg.names = HFHS.selbal_neg, 
+                 Y = y_HFHSday1, selbal = TRUE, 
+                 FINAL.BAL = HFHS.results_selbal$finalBal, 
+                 OTU = T, taxa = taxonomy_HFHS)
+```
+
+We also extract the taxonomic information of these selected OTUs.
+
+```{r}
+HFHS.tax_selbal <- taxonomy_HFHS[which(rownames(taxonomy_HFHS) %in% 
+                                         HFHS.results_selbal$varSelect), ]
+kable(HFHS.tax_selbal[ ,2:6], booktabs = T)
+```

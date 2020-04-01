@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Concordance of variables selected by the three methods | Variable selection in microbiome compositional data analysis: tutorial</title>
+  <meta name="description" content="Methods comparison" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Concordance of variables selected by the three methods | Variable selection in microbiome compositional data analysis: tutorial" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Methods comparison" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Concordance of variables selected by the three methods | Variable selection in microbiome compositional data analysis: tutorial" />
+  
+  <meta name="twitter:description" content="Methods comparison" />
+  
+
+
+
+<meta name="date" content="2020-04-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="coda.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Variable selection</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#packages-installation-and-loading"><i class="fa fa-check"></i><b>1.1</b> Packages installation and loading</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#example-datasets"><i class="fa fa-check"></i><b>1.2</b> Example datasets</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#crohns-disease"><i class="fa fa-check"></i><b>1.2.1</b> Crohn’s disease</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#high-fat-high-sugar-diet-in-mice"><i class="fa fa-check"></i><b>1.2.2</b> High fat high sugar diet in mice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="selbal.html"><a href="selbal.html"><i class="fa fa-check"></i><b>2</b> <em>Selbal</em>: selection of balances</a><ul>
+<li class="chapter" data-level="2.1" data-path="selbal.html"><a href="selbal.html#crohn-case-study"><i class="fa fa-check"></i><b>2.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="2.2" data-path="selbal.html"><a href="selbal.html#hfhs-day1-case-study"><i class="fa fa-check"></i><b>2.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clr.html"><a href="clr.html"><i class="fa fa-check"></i><b>3</b> <em>clr-lasso</em></a><ul>
+<li class="chapter" data-level="3.1" data-path="clr.html"><a href="clr.html#crohn-case-study-1"><i class="fa fa-check"></i><b>3.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="3.2" data-path="clr.html"><a href="clr.html#hfhs-day1-case-study-1"><i class="fa fa-check"></i><b>3.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="coda.html"><a href="coda.html"><i class="fa fa-check"></i><b>4</b> <em>coda-lasso</em></a><ul>
+<li class="chapter" data-level="4.1" data-path="coda.html"><a href="coda.html#crohn-case-study-2"><i class="fa fa-check"></i><b>4.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="4.2" data-path="coda.html"><a href="coda.html#hfhs-day1-case-study-2"><i class="fa fa-check"></i><b>4.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="comparison.html"><a href="comparison.html"><i class="fa fa-check"></i><b>5</b> Concordance of variables selected by the three methods</a><ul>
+<li class="chapter" data-level="5.1" data-path="comparison.html"><a href="comparison.html#crohn-case-study-3"><i class="fa fa-check"></i><b>5.1</b> Crohn case study</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="comparison.html"><a href="comparison.html#upsetr"><i class="fa fa-check"></i><b>5.1.1</b> UpSetR</a></li>
+<li class="chapter" data-level="5.1.2" data-path="comparison.html"><a href="comparison.html#selbal-like-plot"><i class="fa fa-check"></i><b>5.1.2</b> Selbal-like plot</a></li>
+<li class="chapter" data-level="5.1.3" data-path="comparison.html"><a href="comparison.html#plotloadings"><i class="fa fa-check"></i><b>5.1.3</b> plotLoadings</a></li>
+<li class="chapter" data-level="5.1.4" data-path="comparison.html"><a href="comparison.html#trajectory-plots"><i class="fa fa-check"></i><b>5.1.4</b> Trajectory plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="comparison.html"><a href="comparison.html#hfhs-day1-case-study-3"><i class="fa fa-check"></i><b>5.2</b> HFHS-Day1 case study</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="comparison.html"><a href="comparison.html#upsetr-1"><i class="fa fa-check"></i><b>5.2.1</b> UpSetR</a></li>
+<li class="chapter" data-level="5.2.2" data-path="comparison.html"><a href="comparison.html#selbal-like-plot-1"><i class="fa fa-check"></i><b>5.2.2</b> Selbal-like plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="comparison.html"><a href="comparison.html#plotloadings-1"><i class="fa fa-check"></i><b>5.2.3</b> plotLoadings</a></li>
+<li class="chapter" data-level="5.2.4" data-path="comparison.html"><a href="comparison.html#trajectory-plots-1"><i class="fa fa-check"></i><b>5.2.4</b> Trajectory plots</a></li>
+<li class="chapter" data-level="5.2.5" data-path="comparison.html"><a href="comparison.html#graphlan"><i class="fa fa-check"></i><b>5.2.5</b> GraPhlAn</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/EvaYiwenWang/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Variable selection in microbiome compositional data analysis: tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="comparison" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Concordance of variables selected by the three methods</h1>
+<p>In this chapter, we are going to use different visualisation approaches to display the variables selected by the three methods:</p>
+<ul>
+<li><em>UpSet plot</em>: highlights overlap of the variables selected by the three methods.</li>
+<li><em>Selbal-like plot</em>: lists the selected variables and displays their discriminating ability with respect to sample groups.</li>
+<li><em>plotLoadings</em>: visualises the variable coefficients and sample groups each variable contributes to.</li>
+<li><em>Trajectory plot</em>: represents the rank of the variables selected by <em>coda-lasso</em> and <em>clr-lasso</em>, and their corresponding regression coefficients</li>
+<li><em>GraPhlAn</em>: displays the taxonomic tree of selected variables (HFHSday1 data only).</li>
+</ul>
+<div id="crohn-case-study-3" class="section level2">
+<h2><span class="header-section-number">5.1</span> Crohn case study</h2>
+<div id="upsetr" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> UpSetR</h3>
+<p><em>UpSet</em> is a visualisation technique for the quantitative analysis of sets and their intersections <span class="citation">(Lex et al. <a href="#ref-lex2014upset">2014</a>)</span>. Before we apply <em>upset()</em>, we take the list of variable vectors selected with the three methods and convert them into a data frame compatible with <em>upset()</em> using <em>fromList()</em>. We then assign different color shcemes for each variable selection.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.select &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">selbal =</span> Crohn.results_selbal<span class="op">$</span>varSelect,
+                     <span class="dt">clr_lasso =</span> Crohn.results_clrlasso<span class="op">$</span>varSelect,
+                     <span class="dt">coda_lasso =</span> Crohn.results_codalasso<span class="op">$</span>varSelect)
+
+
+Crohn.select.upsetR &lt;-<span class="st"> </span><span class="kw">fromList</span>(Crohn.select)
+
+<span class="kw">upset</span>(<span class="kw">as.data.frame</span>(Crohn.select.upsetR), <span class="dt">main.bar.color =</span> <span class="st">&#39;gray36&#39;</span>, 
+      <span class="dt">sets.bar.color =</span> color[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">5</span>)], <span class="dt">matrix.color =</span> <span class="st">&#39;gray36&#39;</span>, 
+      <span class="dt">order.by =</span> <span class="st">&#39;freq&#39;</span>, <span class="dt">empty.intersections =</span> <span class="st">&#39;on&#39;</span>, 
+      <span class="dt">queries =</span> <span class="kw">list</span>(<span class="kw">list</span>(<span class="dt">query =</span> intersects, <span class="dt">params =</span> <span class="kw">list</span>(<span class="st">&#39;selbal&#39;</span>), 
+                          <span class="dt">color =</span> color[<span class="dv">5</span>], <span class="dt">active =</span> T), 
+                     <span class="kw">list</span>(<span class="dt">query =</span> intersects, <span class="dt">params =</span> <span class="kw">list</span>(<span class="st">&#39;clr_lasso&#39;</span>), 
+                          <span class="dt">color =</span> color[<span class="dv">2</span>], <span class="dt">active =</span> T),
+                     <span class="kw">list</span>(<span class="dt">query =</span> intersects, <span class="dt">params =</span> <span class="kw">list</span>(<span class="st">&#39;coda_lasso&#39;</span>), 
+                          <span class="dt">color =</span> color[<span class="dv">1</span>], <span class="dt">active =</span> T)))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:upsetCD"></span>
+<img src="Generated_plots/upsetCD-1.png" alt="UpSet plot showing overlap between variables selected with different methods." width="100%" />
+<p class="caption">
+Figure 5.1: UpSet plot showing overlap between variables selected with different methods.
+</p>
+</div>
+<p>In Figure <a href="comparison.html#fig:upsetCD">5.1</a>, the left bars show the number of variables selected by each method. The right bar plot combined with the scatterplot show different intersection and their aggregates. For example, in the first column, three points are linked with one line, and the intersection size of the bar is 6. This means that 6 variables are selected by all these three methods. While in the second column, 3 variables are only selected by the method <em>selbal</em> and <em>clr-lasso</em>.</p>
+</div>
+<div id="selbal-like-plot" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Selbal-like plot</h3>
+<p>As mentioned in Chapter <a href="selbal.html#selbal">2</a>, <em>selbal</em> visualised the results using a mixture of selected variables, box plots and density plots:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># selbal</span>
+Crohn.selbal_pos &lt;-<span class="st"> </span>Crohn.results_selbal<span class="op">$</span>posVarSelect
+Crohn.selbal_neg &lt;-<span class="st"> </span>Crohn.results_selbal<span class="op">$</span>negVarSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> Crohn.selbal_pos, 
+                 <span class="dt">neg.names =</span> Crohn.selbal_neg, 
+                 <span class="dt">Y =</span> y_Crohn, <span class="dt">selbal =</span> <span class="ot">TRUE</span>, 
+                 <span class="dt">FINAL.BAL =</span> Crohn.results_selbal<span class="op">$</span>finalBal)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:selbalCD"></span>
+<img src="Generated_plots/selbalCD-1.png" alt="Selbal plot showing variables selected with method selbal and the ability of these variables to discriminate CD and non-CD individuals." width="100%" />
+<p class="caption">
+Figure 5.2: Selbal plot showing variables selected with method selbal and the ability of these variables to discriminate CD and non-CD individuals.
+</p>
+</div>
+<p>In Figure <a href="comparison.html#fig:selbalCD">5.2</a>, the two groups of variables that form the global balance are specified at the top of the plot. They are equally important. The middle box plots represent the distribution of the balance scores for CD and non-CD individuals. The bottom part of the figure contains the density curve for each group.</p>
+<p><em>Selbal-like plot</em> is an extension of this kind of plots. Besides the visualisation of <em>selbal</em>, it can also be used to visualise the results from <em>clr-lasso</em> and <em>coda-lasso</em>, and generate similar plots as Figure <a href="comparison.html#fig:selbalCD">5.2</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clr_lasso</span>
+Crohn.clr_pos &lt;-<span class="st"> </span>Crohn.results_clrlasso<span class="op">$</span>posCoefSelect
+Crohn.clr_neg &lt;-<span class="st"> </span>Crohn.results_clrlasso<span class="op">$</span>negCoefSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> <span class="kw">names</span>(Crohn.clr_pos), 
+                 <span class="dt">neg.names =</span> <span class="kw">names</span>(Crohn.clr_neg), 
+                 <span class="dt">Y =</span> y_Crohn, <span class="dt">X =</span> x_Crohn)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:clrCD"></span>
+<img src="Generated_plots/clrCD-1.png" alt="Selbal-like plot showing variables selected with method clr-lasso and the ability of these variables to discriminate CD and non-CD individuals." width="100%" />
+<p class="caption">
+Figure 5.3: Selbal-like plot showing variables selected with method clr-lasso and the ability of these variables to discriminate CD and non-CD individuals.
+</p>
+</div>
+<p>In Figure <a href="comparison.html#fig:clrCD">5.3</a>, the top panel lists the selected variable names with either negative (B) or positive (A) coefficients. The names are ordered according to their importance (absolute coefficient values). The middle boxplots are based on the log mean difference between negative and positive variables: <span class="math inline">\(\frac{1}{p_{+}}\sum_{i=1}^{p_{+}}logX_{i} - \frac{1}{p_{-}}\sum_{j=1}^{p_{-}}logX_{j}\)</span>. This log mean difference is calculated for each sample as a balance score, because it is proportionally equal to the balance mentioned in <span class="citation">(Rivera-Pinto et al. <a href="#ref-rivera2018balances">2018</a>)</span>. The bottom density plots represent the distributions of the log mean difference scores for CD and non-CD individuals.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># coda_lasso</span>
+Crohn.coda_pos &lt;-<span class="st"> </span>Crohn.results_codalasso<span class="op">$</span>posCoefSelect
+Crohn.coda_neg &lt;-<span class="st"> </span>Crohn.results_codalasso<span class="op">$</span>negCoefSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> <span class="kw">names</span>(Crohn.coda_pos), 
+                 <span class="dt">neg.names =</span> <span class="kw">names</span>(Crohn.coda_neg), 
+                 <span class="dt">Y =</span> y_Crohn, <span class="dt">X =</span> x_Crohn)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:codaCD"></span>
+<img src="Generated_plots/codaCD-1.png" alt="Selbal-like plot showing variables selected with method coda-lasso and the ability of these variables to discriminate CD and non-CD individuals." width="100%" />
+<p class="caption">
+Figure 5.4: Selbal-like plot showing variables selected with method coda-lasso and the ability of these variables to discriminate CD and non-CD individuals.
+</p>
+</div>
+<p>The interpretation of Figure <a href="comparison.html#fig:codaCD">5.4</a> is the same as Figure <a href="comparison.html#fig:clrCD">5.3</a>, but with variables selected with method <em>coda-lasso</em>.</p>
+</div>
+<div id="plotloadings" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> plotLoadings</h3>
+<p>An easy way to visualise the coefficients of the selected variables is to plot them in a barplot in <em>mixMC</em> <span class="citation">(Rohart et al. <a href="#ref-rohart2017mint">2017</a>)</span>. We have amended the <em>plotLoadings()</em> function from the package <em>mixOmics</em> to do so. The argument <strong>Y</strong> specified the sample class, so that the color assigened to each variable represents the class that has the larger mean value (<strong>method = ‘mean’</strong> and <strong>contrib.method = ‘max’</strong>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clr_lasso</span>
+Crohn.clr_coef &lt;-<span class="st"> </span>Crohn.results_clrlasso<span class="op">$</span>coefficientsSelect
+Crohn.clr_data &lt;-<span class="st"> </span>x_Crohn[ ,Crohn.results_clrlasso<span class="op">$</span>varSelect]
+Crohn.clr.plotloadings &lt;-<span class="st"> </span><span class="kw">plotcoefficients</span>(<span class="dt">coef =</span> Crohn.clr_coef, 
+                                  <span class="dt">data =</span> Crohn.clr_data, 
+                                  <span class="dt">Y =</span> y_Crohn, 
+                                  <span class="dt">method =</span> <span class="st">&#39;mean&#39;</span>, 
+                                  <span class="dt">contrib.method =</span> <span class="st">&#39;max&#39;</span>,
+                                  <span class="dt">title =</span> <span class="st">&#39;Coefficients of clr-lasso on Crohn data&#39;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:loadclrCD"></span>
+<img src="Generated_plots/loadclrCD-1.png" alt="The plotLoadings of selected variables with clr-lasso." width="100%" />
+<p class="caption">
+Figure 5.5: The plotLoadings of selected variables with clr-lasso.
+</p>
+</div>
+<p>Figure <a href="comparison.html#fig:loadclrCD">5.5</a> shows that the variables colored in orange have an abundance greater in non-CD samples relative to CD samples (e.g. <em>Roseburia</em>), while the blue ones have a greater abundance in CD samples relative to non-CD samples (e.g. <em>Eggerthella</em>). It is based on their mean per group (CD vs. non-CDs). The bar indicates the coefficient. As we can see, all selected variables with a greater abundance in non-CD samples have been assigned a positive coefficient, and variables with a greater abundance in CD samples have been assigned a negative coefficient.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># coda_lasso</span>
+Crohn.coda_coef &lt;-<span class="st"> </span>Crohn.results_codalasso<span class="op">$</span>coefficientsSelect
+Crohn.coda_data &lt;-<span class="st"> </span>x_Crohn[ ,Crohn.results_codalasso<span class="op">$</span>varSelect]
+
+Crohn.coda.plotloadings &lt;-<span class="st"> </span><span class="kw">plotcoefficients</span>(<span class="dt">coef =</span> Crohn.coda_coef, 
+                                <span class="dt">data =</span> Crohn.coda_data, 
+                                <span class="dt">Y =</span> y_Crohn, 
+                                <span class="dt">method =</span> <span class="st">&#39;mean&#39;</span>, 
+                                <span class="dt">contrib.method =</span> <span class="st">&#39;max&#39;</span>,
+                                <span class="dt">title =</span> <span class="st">&#39;Coefficients of coda-lasso on Crohn data&#39;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:loadcodaCD"></span>
+<img src="Generated_plots/loadcodaCD-1.png" alt="The plotLoadings of selected variables with coda-lasso." width="100%" />
+<p class="caption">
+Figure 5.6: The plotLoadings of selected variables with coda-lasso.
+</p>
+</div>
+<p>The same as Figure <a href="comparison.html#fig:loadclrCD">5.5</a>, we can interpret Figure <a href="comparison.html#fig:loadcodaCD">5.6</a> as follows. Both <em>Roseburia</em> and <em>Peptostreptococcaceae</em> selected by <em>clr-lasso</em> and <em>coda-lasso</em> have a greater abundance in non-CD group and were assigned with the same coeffcient rank. But both <em>Eggerthella</em> and <em>Dialister</em> selected by two methods were assigned with very different coefficient rank. Several variables have a greater abundance in CD group, but with a positive coefficient. It means this model is not optimal at some extent. This may suggest that <em>clr-lasso</em> is better at identifying discriminative variables than <em>coda-lasso</em>.</p>
+</div>
+<div id="trajectory-plots" class="section level3">
+<h3><span class="header-section-number">5.1.4</span> Trajectory plots</h3>
+<p>To visualise the change of variable coefficients and their ranks in the selection between different methods, we use <em>trajectory plots</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TRAJ_plot</span>(<span class="dt">selectVar_coef_method1 =</span> Crohn.coda_coef, 
+          <span class="dt">selectVar_coef_method2 =</span> Crohn.clr_coef, 
+          <span class="dt">selectMethods =</span> <span class="kw">c</span>(<span class="st">&#39;coda-lasso&#39;</span>, <span class="st">&#39;clr-lasso&#39;</span>))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:trajCD"></span>
+<img src="Generated_plots/trajCD-1.png" alt="Trajectory plots of selected variables from both coda-lasso and clr-lasso in Crohn data." width="100%" />
+<p class="caption">
+Figure 5.7: Trajectory plots of selected variables from both coda-lasso and clr-lasso in Crohn data.
+</p>
+</div>
+<p>Figure <a href="comparison.html#fig:trajCD">5.7</a> shows the selected variables ordered by their rank in the selection (according to their coefficient absolute values) between <em>coda-lasso</em> and <em>clr-lasso</em>, with the thickness of the lines representing the coefficient absolute values.</p>
+<p>In this plot <a href="comparison.html#fig:trajCD">5.7</a>, we can visualise the rank change of each selected variable between <em>coda-lasso</em> and <em>clr-lasso</em> selection. For example, the rank of <em>Dialister</em> is lower in <em>clr-lasso</em> compared to <em>coda-lasso</em>. Moreover, we can detect the variables (e.g. <em>Bacteroides</em>) that are selected by one method (e.g. <em>clr-lasso</em>) with high coefficient rank, but not selected by the other method (e.g. <em>coda-lasso</em>).</p>
+</div>
+</div>
+<div id="hfhs-day1-case-study-3" class="section level2">
+<h2><span class="header-section-number">5.2</span> HFHS-Day1 case study</h2>
+<p>Guidance on how to interpret the following plots is detailed in previous <strong>section: Crohn case study</strong>.</p>
+<div id="upsetr-1" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> UpSetR</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.select &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">selbal =</span> HFHS.results_selbal<span class="op">$</span>varSelect,
+                    <span class="dt">clr_lasso =</span> HFHS.results_clrlasso<span class="op">$</span>varSelect,
+                    <span class="dt">coda_lasso =</span> HFHS.results_codalasso<span class="op">$</span>varSelect)
+
+HFHS.select.upsetR &lt;-<span class="st"> </span><span class="kw">fromList</span>(HFHS.select)
+
+<span class="kw">upset</span>(<span class="kw">as.data.frame</span>(HFHS.select.upsetR), <span class="dt">main.bar.color =</span> <span class="st">&#39;gray36&#39;</span>, 
+      <span class="dt">sets.bar.color =</span> color[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)], <span class="dt">matrix.color =</span> <span class="st">&#39;gray36&#39;</span>, 
+      <span class="dt">order.by =</span> <span class="st">&#39;freq&#39;</span>, <span class="dt">empty.intersections =</span> <span class="st">&#39;on&#39;</span>, 
+      <span class="dt">queries =</span> <span class="kw">list</span>(<span class="kw">list</span>(<span class="dt">query =</span> intersects, <span class="dt">params =</span> <span class="kw">list</span>(<span class="st">&#39;selbal&#39;</span>), 
+                          <span class="dt">color =</span> color[<span class="dv">5</span>], <span class="dt">active =</span> T), 
+                     <span class="kw">list</span>(<span class="dt">query =</span> intersects, <span class="dt">params =</span> <span class="kw">list</span>(<span class="st">&#39;coda_lasso&#39;</span>), 
+                          <span class="dt">color =</span> color[<span class="dv">2</span>], <span class="dt">active =</span> T),
+                     <span class="kw">list</span>(<span class="dt">query =</span> intersects, <span class="dt">params =</span> <span class="kw">list</span>(<span class="st">&#39;clr_lasso&#39;</span>), 
+                          <span class="dt">color =</span> color[<span class="dv">1</span>], <span class="dt">active =</span> T)))</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:upsetHFHS"></span>
+<img src="Generated_plots/upsetHFHS-1.png" alt="UpSet plot showing overlap between variables selected with different methods." width="100%" />
+<p class="caption">
+Figure 5.8: UpSet plot showing overlap between variables selected with different methods.
+</p>
+</div>
+<p>Figure <a href="comparison.html#fig:upsetHFHS">5.8</a> shows that 5 OTUs are only selected with <em>clr-lasso</em>, 4 OTUs are selected both with <em>coda-lasso</em> and <em>clr-lasso</em>, 2 OTUs are only selected with <em>coda-lasso</em>, 1 OTUs is selected with both <em>selbal</em> and <em>coda-lasso</em>, and 1 is selected both with <em>selbal</em> and <em>clr-lasso</em>. Among three methods, <em>clr-lasso</em> selected the largest number of OTUs and <em>selbal</em> the smallest.</p>
+</div>
+<div id="selbal-like-plot-1" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Selbal-like plot</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># selbal</span>
+HFHS.selbal_pos &lt;-<span class="st"> </span>HFHS.results_selbal<span class="op">$</span>posVarSelect
+HFHS.selbal_neg &lt;-<span class="st"> </span>HFHS.results_selbal<span class="op">$</span>negVarSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> HFHS.selbal_pos, 
+                 <span class="dt">neg.names =</span> HFHS.selbal_neg, 
+                 <span class="dt">Y =</span> y_HFHSday1, <span class="dt">selbal =</span> <span class="ot">TRUE</span>, 
+                 <span class="dt">FINAL.BAL =</span> HFHS.results_selbal<span class="op">$</span>finalBal, 
+                 <span class="dt">OTU =</span> T, <span class="dt">taxa =</span> taxonomy_HFHS)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-55"></span>
+<img src="Generated_plots/unnamed-chunk-55-1.png" alt="Selbal plot showing variables selected with methd selbal and the ability of these variables to discriminate HFHS and normal individuals." width="100%" />
+<p class="caption">
+Figure 5.9: Selbal plot showing variables selected with methd selbal and the ability of these variables to discriminate HFHS and normal individuals.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clr_lasso</span>
+HFHS.clr_pos &lt;-<span class="st"> </span>HFHS.results_clrlasso<span class="op">$</span>posCoefSelect
+HFHS.clr_neg &lt;-<span class="st"> </span>HFHS.results_clrlasso<span class="op">$</span>negCoefSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> <span class="kw">names</span>(HFHS.clr_pos), 
+                 <span class="dt">neg.names =</span> <span class="kw">names</span>(HFHS.clr_neg), 
+                 <span class="dt">Y =</span> y_HFHSday1, <span class="dt">X =</span> x_HFHSday1, <span class="dt">OTU =</span> T, 
+                 <span class="dt">taxa =</span> taxonomy_HFHS)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-56"></span>
+<img src="Generated_plots/unnamed-chunk-56-1.png" alt="Selbal-like plot showing variables selected with method clr-lasso and the ability of these variables to discriminate HFHS and normal individuals." width="100%" />
+<p class="caption">
+Figure 5.10: Selbal-like plot showing variables selected with method clr-lasso and the ability of these variables to discriminate HFHS and normal individuals.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># coda_lasso</span>
+HFHS.coda_pos &lt;-<span class="st"> </span>HFHS.results_codalasso<span class="op">$</span>posCoefSelect
+HFHS.coda_neg &lt;-<span class="st"> </span>HFHS.results_codalasso<span class="op">$</span>negCoefSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> <span class="kw">names</span>(HFHS.coda_pos), 
+                 <span class="dt">neg.names =</span> <span class="kw">names</span>(HFHS.coda_neg), 
+                 <span class="dt">Y =</span> y_HFHSday1, <span class="dt">X =</span> x_HFHSday1, 
+                 <span class="dt">OTU =</span> T, <span class="dt">taxa =</span> taxonomy_HFHS)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-57"></span>
+<img src="Generated_plots/unnamed-chunk-57-1.png" alt="Selbal-like plot showing variables selected with method coda-lasso and the ability of these variables to discriminate HFHS and normal individuals." width="100%" />
+<p class="caption">
+Figure 5.11: Selbal-like plot showing variables selected with method coda-lasso and the ability of these variables to discriminate HFHS and normal individuals.
+</p>
+</div>
+<p><em>Note</em>: <em>S24-7</em> is a family from order <em>Bacteroidales</em>.</p>
+<p>Among these methods, <em>selbal</em> only needs two OTUs to build a balance, it also means the association between microbiome composition and diet is very strong.</p>
+</div>
+<div id="plotloadings-1" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> plotLoadings</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clr_lasso</span>
+HFHS.clr_coef &lt;-<span class="st"> </span>HFHS.results_clrlasso<span class="op">$</span>coefficientsSelect
+HFHS.clr_data &lt;-<span class="st"> </span>x_HFHSday1[ ,HFHS.results_clrlasso<span class="op">$</span>varSelect]
+HFHS.clr.plotloadings &lt;-<span class="st"> </span><span class="kw">plotcoefficients</span>(<span class="dt">coef =</span> HFHS.clr_coef, 
+                              <span class="dt">data =</span> HFHS.clr_data, 
+                              <span class="dt">Y =</span> y_HFHSday1, 
+                              <span class="dt">title =</span> <span class="st">&#39;Coefficients of clr-lasso on HFHSday1 data&#39;</span>,
+                              <span class="dt">method =</span> <span class="st">&#39;mean&#39;</span>, 
+                              <span class="dt">contrib.method =</span> <span class="st">&#39;max&#39;</span>,
+                              <span class="dt">OTU =</span> T,
+                              <span class="dt">taxa =</span> taxonomy_HFHS)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:loadclrHFHS"></span>
+<img src="Generated_plots/loadclrHFHS-1.png" alt="The plotLoadings of selected variables with clr-lasso." width="100%" />
+<p class="caption">
+Figure 5.12: The plotLoadings of selected variables with clr-lasso.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># coda_lasso</span>
+HFHS.coda_coef &lt;-<span class="st"> </span>HFHS.results_codalasso<span class="op">$</span>coefficientsSelect
+HFHS.coda_data &lt;-<span class="st"> </span>x_HFHSday1[ ,HFHS.results_codalasso<span class="op">$</span>varSelect]
+
+HFHS.coda.plotloadings &lt;-<span class="st"> </span><span class="kw">plotcoefficients</span>(<span class="dt">coef =</span> HFHS.coda_coef, 
+                            <span class="dt">data =</span> HFHS.coda_data, 
+                            <span class="dt">Y =</span> y_HFHSday1, 
+                            <span class="dt">method =</span> <span class="st">&#39;mean&#39;</span>, 
+                            <span class="dt">contrib.method =</span> <span class="st">&#39;max&#39;</span>,
+                            <span class="dt">title =</span> <span class="st">&#39;Coefficients of coda-lasso on HFHSday1 data&#39;</span>,
+                            <span class="dt">OTU =</span> T,
+                            <span class="dt">taxa =</span> taxonomy_HFHS)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:loadcodaHFHS"></span>
+<img src="Generated_plots/loadcodaHFHS-1.png" alt="The plotLoadings of selected variables with coda-lasso." width="100%" />
+<p class="caption">
+Figure 5.13: The plotLoadings of selected variables with coda-lasso.
+</p>
+</div>
+<p>In Figure <a href="comparison.html#fig:loadcodaHFHS">5.13</a>, three OTUs <strong>175272: S24-7</strong>, <strong>265322: S24-7</strong>, <strong>198339: S24-7</strong> have a greater abundance in HFHS group but were assigned with positive coefficients.</p>
+</div>
+<div id="trajectory-plots-1" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> Trajectory plots</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TRAJ_plot</span>(<span class="dt">selectVar_coef_method1 =</span> HFHS.coda_coef, 
+          <span class="dt">selectVar_coef_method2 =</span> HFHS.clr_coef, 
+          <span class="dt">selectMethods =</span> <span class="kw">c</span>(<span class="st">&#39;coda-lasso&#39;</span>, <span class="st">&#39;clr-lasso&#39;</span>), 
+          <span class="dt">OTU =</span> T, <span class="dt">taxa =</span> taxonomy_HFHS)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:trajHFHS"></span>
+<img src="Generated_plots/trajHFHS-1.png" alt="Trajectory plots of selected variables with both coda-lasso and clr-lasso in HFHSday1 data." width="100%" />
+<p class="caption">
+Figure 5.14: Trajectory plots of selected variables with both coda-lasso and clr-lasso in HFHSday1 data.
+</p>
+</div>
+<p>In Figure <a href="comparison.html#fig:trajHFHS">5.14</a>, top three OTUs selected with <em>clr-lasso</em> are also selected as top OTUs from <em>coda-lasso</em> but with different order. The other OTUs are either selected by <em>coda-lasso</em> or <em>clr-lasso</em>.</p>
+</div>
+<div id="graphlan" class="section level3">
+<h3><span class="header-section-number">5.2.5</span> GraPhlAn</h3>
+<p>As we also have the taxonomic information of HFHSday1 data, we use <em>GraPhlAn</em> to visualise the taxonomic information of the selected OTUs. <em>GraPhlAn</em> is a software tool for producing high-quality circular representations of taxonomic and phylogenetic trees (<a href="https://huttenhower.sph.harvard.edu/graphlan" class="uri">https://huttenhower.sph.harvard.edu/graphlan</a>). It is coded in Python.</p>
+<p>We first remove empty taxa (e.g. species) and aggregate all these selected variables into a list. Then we use function <em>graphlan_annot_generation()</em> to generate the input files that graphlan python codes require. In the <strong>save_folder</strong>, there are two existing files: <strong>annot_0.txt</strong> and <strong>graphlan_all.sh</strong>. After we generate our input files <strong>taxa.txt</strong> and <strong>annot_all.txt</strong>, we only need to run the <em>./graphlan_all.sh</em> in the bash command line to generate the plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># remove empty columns</span>
+HFHS.tax_codalasso &lt;-<span class="st"> </span>HFHS.tax_codalasso[,<span class="op">-</span><span class="dv">7</span>] 
+HFHS.tax_clrlasso &lt;-<span class="st"> </span>HFHS.tax_clrlasso[,<span class="op">-</span><span class="dv">7</span>]
+HFHS.tax_selbal &lt;-<span class="st"> </span>HFHS.tax_selbal[,<span class="op">-</span><span class="dv">7</span>]
+
+HFHS.select.tax &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">selbal =</span> HFHS.tax_selbal,
+                        <span class="dt">clr_lasso =</span> HFHS.tax_clrlasso,
+                        <span class="dt">coda_lasso =</span> HFHS.tax_codalasso)
+
+<span class="kw">graphlan_annot_generation</span>(<span class="dt">taxa_list =</span> HFHS.select.tax, <span class="dt">save_folder =</span> <span class="st">&#39;graphlan/&#39;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:graphlanHFHS"></span>
+<img src="graphlan/taxa.png" alt="GraPhlAn of selected taxa from different methods in HFHSday1 data." width="100%" />
+<p class="caption">
+Figure 5.15: GraPhlAn of selected taxa from different methods in HFHSday1 data.
+</p>
+</div>
+<p>In Figure <a href="comparison.html#fig:graphlanHFHS">5.15</a>, the inner circle is a taxonomic tree of selected OTUs. The outside circles indicate different selection methods. If a proportion of a circle is coloured, it means that the corresponding OTU is selected by the method labeled on the circle. If the bottom nodes are coloured in gray, it indicates the OTUs are only selected by one method.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-lex2014upset">
+<p>Lex, Alexander, Nils Gehlenborg, Hendrik Strobelt, Romain Vuillemot, and Hanspeter Pfister. 2014. “UpSet: Visualization of Intersecting Sets.” <em>IEEE Transactions on Visualization and Computer Graphics</em> 20 (12). IEEE: 1983–92.</p>
+</div>
+<div id="ref-rivera2018balances">
+<p>Rivera-Pinto, J, JJ Egozcue, Vera Pawlowsky-Glahn, Raul Paredes, Marc Noguera-Julian, and ML Calle. 2018. “Balances: A New Perspective for Microbiome Analysis.” <em>MSystems</em> 3 (4). Am Soc Microbiol: e00053–18.</p>
+</div>
+<div id="ref-rohart2017mint">
+<p>Rohart, Florian, Aida Eslami, Nicholas Matigian, Stephanie Bougeard, and Kim-Anh Le Cao. 2017. “MINT: A Multivariate Integrative Method to Identify Reproducible Molecular Signatures Across Independent Experiments and Platforms.” <em>BMC Bioinformatics</em> 18 (1). BioMed Central: 128.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="coda.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Microbiome_variable_selection_tutorial.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

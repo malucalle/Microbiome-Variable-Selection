@@ -1,0 +1,104 @@
+# *coda-lasso* {#coda}
+
+*Coda-lasso* implements penalised regression on a log-contrast model (a regression model on log-transformed covariates and a zero-sum constraint on the regression coefficients, except the intercept) [@lu2019generalized; @lin2014variable]. 
+
+As we mentioned before, *coda-lasso* is not yet available as an R package. Our R code for implementing the algorithm includes two main functions that are *coda_logistic_lasso()* and *coda_logistic_elasticNet()* that implement LASSO or elastic-net penalisation on a logistic regression model for a binary outcome. 
+
+Details of function *coda_logistic_lasso*(**y**,**X**,**lambda**):
+
+**y** is the binary outcome, can be numerical (values 0 and 1), factor (2 levels) or categorical (2 categories).
+
+**X** is the matrix of microbiome abundances, either absolute abundances (counts) or relative abundances (proportions), the rows of **X** are individuals/samples, the columns are taxa.
+
+**lambda** is the penalisation parameter, the larger the value of **lambda** the smaller the number of variables selected.
+
+*Notes*: 
+
+* Imputation of zeros: The user should provide a matrix **X** of positive values without zeros. Zeros should be previously added with an offset of 1 by the user. 
+* Log-transformation: **X** should not be the matrix of log(counts) or log(proportions). The method itself performs the log-transformation of the abundances.
+* Selection of $\lambda$: Functions *lambdaRange_codalasso()* and *lambdaRange_elasticnet()* are useful to find the optimum value of the penalisation parameter $\lambda$. Function *lambdaRange_codalasso*(**y**,**X**) provides the number of selected variables and the proportion of explained deviance for a sequence of values for the penalised parameter $\lambda$.
+
+Bellow, we illustrate the use of *coda_logistic_lasso()* on the Crohn and HFHS-Day1 case studies. We also generated a wrapper function called *coda_lasso_wrapper()* that will help us to handle the output of *coda-lasso*. The *coda_lasso_wrapper()* function is uploaded via **functions.R**.
+
+
+## Crohn case study
+
+To run *coda-lasso*, we must specify a value of $\lambda$, the penalisation parameter: the larger the value of $\lambda$, the less variables will be selected. In previous analysis of this dataset with *selbal*, a balance with 12 variables was determined optimal to discriminate the CD status [@rivera2018balances]. For ease of comparison, we will specify the penalised parameter that results in the selection of 12 variables for *coda-lasso*. Function *lambdaRange_codalasso()* helps us to identify the value of $\lambda$ that corresponds to 12 variables selected. To save space, we only consider a sequence of $\lambda$ from 0.1 to 0.2 with an increment of 0.01, but you can start from a broader range: 
+
+```{r}
+lambdaRange_codalasso(X = x_Crohn, y = y_Crohn, lambdaSeq = seq(0.1, 0.2, 0.01))
+```
+
+In this output, the first column is the value of $\lambda$, the second column is the number of selected variables and the third column is the proportion of deviance explained. According to this results, we will take $\lambda = 0.15$. 
+
+```{r}
+codalasso_Crohn <- coda_logistic_lasso(X = x_Crohn, y = y_Crohn, lambda = 0.15)
+```
+
+The same as the previous two methods, we also use a wrapper function called *coda_lasso_wrapper()* with the output from *coda_logistic_lasso()*.
+
+```{r}
+Crohn.results_codalasso <- coda_lasso_wrapper(result = codalasso_Crohn, X = x_Crohn)
+```
+
+Then we get the number of selected variables:
+
+```{r}
+Crohn.results_codalasso$numVarSelect
+```
+
+and the names of selected variables:
+
+```{r}
+Crohn.results_codalasso$varSelect
+```
+
+
+## HFHS-Day1 case study
+
+The analysis on HFHSday1 data is similar to Crohn data.
+
+Using function *lambdaRange_codalasso()*, we explore the number of selected OTUs and the proportion of explained variance for different values of $\lambda$. To save space, we only consider a sequence of $\lambda$ from 1.3 to 1.8 with an increment of 0.01, but you can start from a broader range: 
+
+```{r, message = F, error = F, warning = F}
+lambdaRange_codalasso(X = x_HFHSday1, y = y_HFHSday1, lambdaSeq = seq(1.3, 1.8, 0.01))
+```
+
+The largest $\lambda$ that provides maximum proportion of explained deviance is $\lambda = 1.47$. Thus, we implement *coda-lasso* with this value of $\lambda$. 
+
+```{r}
+codalasso_HFHSday1 <- coda_logistic_lasso(X = x_HFHSday1, y = y_HFHSday1, lambda = 1.47)
+```
+
+We then use *coda_lasso_wrapper()* to handle the results.
+
+
+```{r}
+HFHS.results_codalasso <- coda_lasso_wrapper(result = codalasso_HFHSday1, X = x_HFHSday1) 
+```
+
+The number of selected variables is 7: 
+
+```{r}
+HFHS.results_codalasso$numVarSelect
+```
+
+The proportion of explained deviance by the selected OTUs is 1 meaning that they completely discriminate the two diet groups: 
+
+```{r}
+HFHS.results_codalasso$explained_deviance_proportion
+```
+
+The names of the selected OTUs are: 
+
+```{r}
+HFHS.results_codalasso$varSelect
+```
+
+By using the taxomonic table, we extract the taxonomic information of these selected OTUs.
+
+```{r}
+HFHS.tax_codalasso <- taxonomy_HFHS[which(rownames(taxonomy_HFHS) %in% 
+                                            HFHS.results_codalasso$varSelect), ]
+kable(HFHS.tax_codalasso[ ,2:6], booktabs = T)
+```

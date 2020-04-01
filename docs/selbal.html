@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Selbal: selection of balances | Variable selection in microbiome compositional data analysis: tutorial</title>
+  <meta name="description" content="Methods comparison" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Selbal: selection of balances | Variable selection in microbiome compositional data analysis: tutorial" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Methods comparison" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Selbal: selection of balances | Variable selection in microbiome compositional data analysis: tutorial" />
+  
+  <meta name="twitter:description" content="Methods comparison" />
+  
+
+
+
+<meta name="date" content="2020-04-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="clr.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Variable selection</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#packages-installation-and-loading"><i class="fa fa-check"></i><b>1.1</b> Packages installation and loading</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#example-datasets"><i class="fa fa-check"></i><b>1.2</b> Example datasets</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#crohns-disease"><i class="fa fa-check"></i><b>1.2.1</b> Crohn’s disease</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#high-fat-high-sugar-diet-in-mice"><i class="fa fa-check"></i><b>1.2.2</b> High fat high sugar diet in mice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="selbal.html"><a href="selbal.html"><i class="fa fa-check"></i><b>2</b> <em>Selbal</em>: selection of balances</a><ul>
+<li class="chapter" data-level="2.1" data-path="selbal.html"><a href="selbal.html#crohn-case-study"><i class="fa fa-check"></i><b>2.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="2.2" data-path="selbal.html"><a href="selbal.html#hfhs-day1-case-study"><i class="fa fa-check"></i><b>2.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clr.html"><a href="clr.html"><i class="fa fa-check"></i><b>3</b> <em>clr-lasso</em></a><ul>
+<li class="chapter" data-level="3.1" data-path="clr.html"><a href="clr.html#crohn-case-study-1"><i class="fa fa-check"></i><b>3.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="3.2" data-path="clr.html"><a href="clr.html#hfhs-day1-case-study-1"><i class="fa fa-check"></i><b>3.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="coda.html"><a href="coda.html"><i class="fa fa-check"></i><b>4</b> <em>coda-lasso</em></a><ul>
+<li class="chapter" data-level="4.1" data-path="coda.html"><a href="coda.html#crohn-case-study-2"><i class="fa fa-check"></i><b>4.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="4.2" data-path="coda.html"><a href="coda.html#hfhs-day1-case-study-2"><i class="fa fa-check"></i><b>4.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="comparison.html"><a href="comparison.html"><i class="fa fa-check"></i><b>5</b> Concordance of variables selected by the three methods</a><ul>
+<li class="chapter" data-level="5.1" data-path="comparison.html"><a href="comparison.html#crohn-case-study-3"><i class="fa fa-check"></i><b>5.1</b> Crohn case study</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="comparison.html"><a href="comparison.html#upsetr"><i class="fa fa-check"></i><b>5.1.1</b> UpSetR</a></li>
+<li class="chapter" data-level="5.1.2" data-path="comparison.html"><a href="comparison.html#selbal-like-plot"><i class="fa fa-check"></i><b>5.1.2</b> Selbal-like plot</a></li>
+<li class="chapter" data-level="5.1.3" data-path="comparison.html"><a href="comparison.html#plotloadings"><i class="fa fa-check"></i><b>5.1.3</b> plotLoadings</a></li>
+<li class="chapter" data-level="5.1.4" data-path="comparison.html"><a href="comparison.html#trajectory-plots"><i class="fa fa-check"></i><b>5.1.4</b> Trajectory plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="comparison.html"><a href="comparison.html#hfhs-day1-case-study-3"><i class="fa fa-check"></i><b>5.2</b> HFHS-Day1 case study</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="comparison.html"><a href="comparison.html#upsetr-1"><i class="fa fa-check"></i><b>5.2.1</b> UpSetR</a></li>
+<li class="chapter" data-level="5.2.2" data-path="comparison.html"><a href="comparison.html#selbal-like-plot-1"><i class="fa fa-check"></i><b>5.2.2</b> Selbal-like plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="comparison.html"><a href="comparison.html#plotloadings-1"><i class="fa fa-check"></i><b>5.2.3</b> plotLoadings</a></li>
+<li class="chapter" data-level="5.2.4" data-path="comparison.html"><a href="comparison.html#trajectory-plots-1"><i class="fa fa-check"></i><b>5.2.4</b> Trajectory plots</a></li>
+<li class="chapter" data-level="5.2.5" data-path="comparison.html"><a href="comparison.html#graphlan"><i class="fa fa-check"></i><b>5.2.5</b> GraPhlAn</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/EvaYiwenWang/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Variable selection in microbiome compositional data analysis: tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="selbal" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> <em>Selbal</em>: selection of balances</h1>
+<p><em>Selbal</em> is a forward selection algorithm for the identification of two groups of variables whose balance is most associated with the response variable <span class="citation">(Rivera-Pinto et al. <a href="#ref-rivera2018balances">2018</a>)</span>. <em>Selbal</em> R package is available on GitHub (<a href="https://github.com/UVic-omics/selbal" class="uri">https://github.com/UVic-omics/selbal</a>) and can be installed with <em>devtools</em>:</p>
+<p>for non-Windows users:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="dt">repo =</span> <span class="st">&quot;UVic-omics/selbal&quot;</span>)</code></pre></div>
+<p>for Windows users:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_url</span>(<span class="dt">url=</span><span class="st">&quot;https://github.com/UVic-omics/selbal/archive/master.zip&quot;</span>, 
+                      <span class="dt">INSTALL_opt=</span> <span class="st">&quot;--no-multiarch&quot;</span>)</code></pre></div>
+<p>For a detailed description of <em>selbal</em> see the vignette: <a href="https://htmlpreview.github.io/?https://github.com/UVic-omics/selbal/blob/master/vignettes/vignette.html" class="uri">https://htmlpreview.github.io/?https://github.com/UVic-omics/selbal/blob/master/vignettes/vignette.html</a></p>
+<p>We generated a wrapper function called <em>selbal_wrapper()</em> that will help us to handle the output of <em>selbal</em>. The <em>selbal_wrapper()</em> function is uploaded via <strong>functions.R</strong>.</p>
+<div id="crohn-case-study" class="section level2">
+<h2><span class="header-section-number">2.1</span> Crohn case study</h2>
+<p>For binary outcomes, <em>selbal()</em> requires that dependent variable <strong>Y</strong> is given as a factor and it implements logistic regression. If <strong>Y</strong> is numeric, <em>selbal()</em> implements linear regression.</p>
+<p>The dependent variable in Crohn dataset is a factor:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(y_Crohn)</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<p>The performance measure (<strong>logit.acc</strong>) of the selected balance for binary outcomes is the <strong>AUC</strong> (default) or the proportion of explained deviance (<strong>Dev</strong>). For comparison with the other methods we will use <strong>Dev</strong> and will set the maximum number of variables (<strong>maxV</strong>) to be selected equal to 12 (<strong>maxV = 12</strong>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">selbal_Crohn &lt;-<span class="st"> </span><span class="kw">selbal</span>(<span class="dt">x =</span> x_Crohn, <span class="dt">y =</span> y_Crohn, <span class="dt">maxV =</span> <span class="dv">12</span>, 
+                       <span class="dt">logit.acc =</span> <span class="st">&#39;Dev&#39;</span>, <span class="dt">draw =</span> F)</code></pre></div>
+<p>The output of <em>selbal()</em> is a list and we can get the different elements of the list by indexing.</p>
+<p>To visualise the results of <em>selbal</em>, we recommend the new balance representation (<strong>global.plot2</strong>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dev.off() # clean plots window when you run in Console</span>
+<span class="kw">grid.draw</span>(selbal_Crohn<span class="op">$</span>global.plot2) </code></pre></div>
+<p>To improve the readability of codes and to compare more easily with the other two methods, we use <em>selbal_wrapper()</em> to handle the output from <em>selbal()</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.results_selbal &lt;-<span class="st"> </span><span class="kw">selbal_wrapper</span>(<span class="dt">result =</span> selbal_Crohn, <span class="dt">X =</span> x_Crohn) </code></pre></div>
+<p>The number of selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.results_selbal<span class="op">$</span>numVarSelect</code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>The names of selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.results_selbal<span class="op">$</span>varSelect</code></pre></div>
+<pre><code>##  [1] &quot;g__Roseburia&quot;                 &quot;g__Eggerthella&quot;              
+##  [3] &quot;g__Dialister&quot;                 &quot;g__Streptococcus&quot;            
+##  [5] &quot;f__Peptostreptococcaceae_g__&quot; &quot;g__Bacteroides&quot;              
+##  [7] &quot;g__Aggregatibacter&quot;           &quot;g__Adlercreutzia&quot;            
+##  [9] &quot;g__Dorea&quot;                     &quot;g__Oscillospira&quot;             
+## [11] &quot;o__Clostridiales_g__&quot;         &quot;g__Blautia&quot;</code></pre>
+<p>For visualisation, we can use <em>selbal_like_plot()</em> which can also be used in other two methods (see Chapter <a href="comparison.html#comparison">5</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.selbal_pos &lt;-<span class="st"> </span>Crohn.results_selbal<span class="op">$</span>posVarSelect
+Crohn.selbal_neg &lt;-<span class="st"> </span>Crohn.results_selbal<span class="op">$</span>negVarSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> Crohn.selbal_pos, <span class="dt">neg.names =</span> Crohn.selbal_neg, 
+                 <span class="dt">Y =</span> y_Crohn, <span class="dt">selbal =</span> <span class="ot">TRUE</span>, 
+                 <span class="dt">FINAL.BAL =</span> Crohn.results_selbal<span class="op">$</span>finalBal)</code></pre></div>
+<p><img src="Generated_plots/unnamed-chunk-18-1.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="hfhs-day1-case-study" class="section level2">
+<h2><span class="header-section-number">2.2</span> HFHS-Day1 case study</h2>
+<p>The analysis on HFHSday1 data is similar to Crohn data.</p>
+<p>First, we need to check if the dependent variable <strong>Y</strong> is a factor.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(y_HFHSday1)</code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<p>We set the maximum number of variables to be selected equal to 2 (<strong>maxV = 2</strong>) according to tuning function <em>selbal.cv()</em> (not shown here) <span class="citation">(Rivera-Pinto et al. <a href="#ref-rivera2018balances">2018</a>)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">selbal_HFHSday1 &lt;-<span class="st"> </span><span class="kw">selbal</span>(<span class="dt">x =</span> x_HFHSday1, <span class="dt">y =</span> y_HFHSday1, <span class="dt">maxV =</span> <span class="dv">2</span>, 
+                          <span class="dt">logit.acc =</span> <span class="st">&#39;Dev&#39;</span>, <span class="dt">draw =</span> F)</code></pre></div>
+<p>We then use <em>selbal_wrapper()</em> to handle the results:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.results_selbal &lt;-<span class="st"> </span><span class="kw">selbal_wrapper</span>(<span class="dt">result =</span> selbal_HFHSday1, <span class="dt">X =</span> x_HFHSday1) </code></pre></div>
+<p>The number of selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.results_selbal<span class="op">$</span>numVarSelect</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>The names of selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.results_selbal<span class="op">$</span>varSelect</code></pre></div>
+<pre><code>## [1] &quot;290253&quot; &quot;263479&quot;</code></pre>
+<p>For visualisation, we then use <em>selbal_like_plot()</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.selbal_pos &lt;-<span class="st"> </span>HFHS.results_selbal<span class="op">$</span>posVarSelect
+HFHS.selbal_neg &lt;-<span class="st"> </span>HFHS.results_selbal<span class="op">$</span>negVarSelect
+<span class="kw">selbal_like_plot</span>(<span class="dt">pos.names =</span> HFHS.selbal_pos, <span class="dt">neg.names =</span> HFHS.selbal_neg, 
+                 <span class="dt">Y =</span> y_HFHSday1, <span class="dt">selbal =</span> <span class="ot">TRUE</span>, 
+                 <span class="dt">FINAL.BAL =</span> HFHS.results_selbal<span class="op">$</span>finalBal, 
+                 <span class="dt">OTU =</span> T, <span class="dt">taxa =</span> taxonomy_HFHS)</code></pre></div>
+<p><img src="Generated_plots/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>We also extract the taxonomic information of these selected OTUs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.tax_selbal &lt;-<span class="st"> </span>taxonomy_HFHS[<span class="kw">which</span>(<span class="kw">rownames</span>(taxonomy_HFHS) <span class="op">%in%</span><span class="st"> </span>
+<span class="st">                                         </span>HFHS.results_selbal<span class="op">$</span>varSelect), ]
+<span class="kw">kable</span>(HFHS.tax_selbal[ ,<span class="dv">2</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">booktabs =</span> T)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">Phylum</th>
+<th align="left">Class</th>
+<th align="left">Order</th>
+<th align="left">Family</th>
+<th align="left">Genus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>290253</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left">Ruminococcaceae</td>
+<td align="left">Oscillospira</td>
+</tr>
+<tr class="even">
+<td>263479</td>
+<td align="left">Bacteroidetes</td>
+<td align="left">Bacteroidia</td>
+<td align="left">Bacteroidales</td>
+<td align="left">S24-7</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-rivera2018balances">
+<p>Rivera-Pinto, J, JJ Egozcue, Vera Pawlowsky-Glahn, Raul Paredes, Marc Noguera-Julian, and ML Calle. 2018. “Balances: A New Perspective for Microbiome Analysis.” <em>MSystems</em> 3 (4). Am Soc Microbiol: e00053–18.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="clr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Microbiome_variable_selection_tutorial.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

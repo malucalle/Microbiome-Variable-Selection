@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 clr-lasso | Variable selection in microbiome compositional data analysis: tutorial</title>
+  <meta name="description" content="Methods comparison" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 clr-lasso | Variable selection in microbiome compositional data analysis: tutorial" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Methods comparison" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 clr-lasso | Variable selection in microbiome compositional data analysis: tutorial" />
+  
+  <meta name="twitter:description" content="Methods comparison" />
+  
+
+
+
+<meta name="date" content="2020-04-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="selbal.html"/>
+<link rel="next" href="coda.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Variable selection</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#packages-installation-and-loading"><i class="fa fa-check"></i><b>1.1</b> Packages installation and loading</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#example-datasets"><i class="fa fa-check"></i><b>1.2</b> Example datasets</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#crohns-disease"><i class="fa fa-check"></i><b>1.2.1</b> Crohn’s disease</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#high-fat-high-sugar-diet-in-mice"><i class="fa fa-check"></i><b>1.2.2</b> High fat high sugar diet in mice</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="selbal.html"><a href="selbal.html"><i class="fa fa-check"></i><b>2</b> <em>Selbal</em>: selection of balances</a><ul>
+<li class="chapter" data-level="2.1" data-path="selbal.html"><a href="selbal.html#crohn-case-study"><i class="fa fa-check"></i><b>2.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="2.2" data-path="selbal.html"><a href="selbal.html#hfhs-day1-case-study"><i class="fa fa-check"></i><b>2.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clr.html"><a href="clr.html"><i class="fa fa-check"></i><b>3</b> <em>clr-lasso</em></a><ul>
+<li class="chapter" data-level="3.1" data-path="clr.html"><a href="clr.html#crohn-case-study-1"><i class="fa fa-check"></i><b>3.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="3.2" data-path="clr.html"><a href="clr.html#hfhs-day1-case-study-1"><i class="fa fa-check"></i><b>3.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="coda.html"><a href="coda.html"><i class="fa fa-check"></i><b>4</b> <em>coda-lasso</em></a><ul>
+<li class="chapter" data-level="4.1" data-path="coda.html"><a href="coda.html#crohn-case-study-2"><i class="fa fa-check"></i><b>4.1</b> Crohn case study</a></li>
+<li class="chapter" data-level="4.2" data-path="coda.html"><a href="coda.html#hfhs-day1-case-study-2"><i class="fa fa-check"></i><b>4.2</b> HFHS-Day1 case study</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="comparison.html"><a href="comparison.html"><i class="fa fa-check"></i><b>5</b> Concordance of variables selected by the three methods</a><ul>
+<li class="chapter" data-level="5.1" data-path="comparison.html"><a href="comparison.html#crohn-case-study-3"><i class="fa fa-check"></i><b>5.1</b> Crohn case study</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="comparison.html"><a href="comparison.html#upsetr"><i class="fa fa-check"></i><b>5.1.1</b> UpSetR</a></li>
+<li class="chapter" data-level="5.1.2" data-path="comparison.html"><a href="comparison.html#selbal-like-plot"><i class="fa fa-check"></i><b>5.1.2</b> Selbal-like plot</a></li>
+<li class="chapter" data-level="5.1.3" data-path="comparison.html"><a href="comparison.html#plotloadings"><i class="fa fa-check"></i><b>5.1.3</b> plotLoadings</a></li>
+<li class="chapter" data-level="5.1.4" data-path="comparison.html"><a href="comparison.html#trajectory-plots"><i class="fa fa-check"></i><b>5.1.4</b> Trajectory plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="comparison.html"><a href="comparison.html#hfhs-day1-case-study-3"><i class="fa fa-check"></i><b>5.2</b> HFHS-Day1 case study</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="comparison.html"><a href="comparison.html#upsetr-1"><i class="fa fa-check"></i><b>5.2.1</b> UpSetR</a></li>
+<li class="chapter" data-level="5.2.2" data-path="comparison.html"><a href="comparison.html#selbal-like-plot-1"><i class="fa fa-check"></i><b>5.2.2</b> Selbal-like plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="comparison.html"><a href="comparison.html#plotloadings-1"><i class="fa fa-check"></i><b>5.2.3</b> plotLoadings</a></li>
+<li class="chapter" data-level="5.2.4" data-path="comparison.html"><a href="comparison.html#trajectory-plots-1"><i class="fa fa-check"></i><b>5.2.4</b> Trajectory plots</a></li>
+<li class="chapter" data-level="5.2.5" data-path="comparison.html"><a href="comparison.html#graphlan"><i class="fa fa-check"></i><b>5.2.5</b> GraPhlAn</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/EvaYiwenWang/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Variable selection in microbiome compositional data analysis: tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="clr" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> <em>clr-lasso</em></h1>
+<p>Penalised regression is a powerful approach for variable selection in high dimensional settings <span class="citation">(Zou and Hastie <a href="#ref-zou2005regularization">2005</a>; Tibshirani <a href="#ref-tibshirani1996regression">1996</a>; Le Cessie and Van Houwelingen <a href="#ref-le1992ridge">1992</a>)</span>. It can be adapted to compositional data analysis (CoDA) by previously transforming the compositional data with the centered log-ratio transformation (clr).</p>
+<p><em>Clr-lasso</em> implements penalised regression using the R package <em>glmnet</em> after clr transformation. Clr transformation corresponds to centering the log-transformed values:</p>
+<p><span class="math display">\[clr(x) = clr(x_{1},...,x_{k}) = (log(x_{1})-M,...,log(x_{k})-M)\]</span></p>
+<p>Where <span class="math inline">\(i=1,...,k\)</span> microbial variables, <span class="math inline">\(x_{k}\)</span> is the counts of variable <span class="math inline">\(k\)</span>, <span class="math inline">\(M\)</span> is the arithmetic mean of the log-transformed values.</p>
+<p><span class="math display">\[M = \frac{1}{k}\sum_{i=1}^{k}log(x_{i})\]</span></p>
+<p>We also generated a wrapper function called <em>glmnet_wrapper()</em> that will help us to handle the output of <em>glmnet</em>. The <em>glmnet_wrapper()</em> function is uploaded via <strong>functions.R</strong>.</p>
+<div id="crohn-case-study-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Crohn case study</h2>
+<p>First we perform the clr transformation of the abundance table <strong>x_Crohn</strong> as follows (the log-transformation requires a matrix of positive values and thus the zeros have been previously added with an offset of 1):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z_Crohn &lt;-<span class="st"> </span><span class="kw">log</span>(x_Crohn)
+clrx_Crohn &lt;-<span class="st"> </span><span class="kw">apply</span>(z_Crohn, <span class="dv">2</span>, <span class="cf">function</span>(x) x <span class="op">-</span><span class="st"> </span><span class="kw">rowMeans</span>(z_Crohn))</code></pre></div>
+<p>We implement penalised regression with function <em>glmnet()</em>. This function requires the outcome <strong>Y</strong> to be numeric. The file “Crohn_data.RData” contains <strong>y_Crohn_numeric</strong>, a numerical vector of disease status with values 1 (CD) and 0 (not CD).</p>
+<p>Penalised regression requires the specification of the penalization parameter <span class="math inline">\(\lambda\)</span>. The larger the value of <span class="math inline">\(\lambda\)</span>, the less variables will be selected. In previous analysis of this dataset with <em>selbal</em>, a balance with 12 variables was determined optimal to discriminate the CD status <span class="citation">(Rivera-Pinto et al. <a href="#ref-rivera2018balances">2018</a>)</span>. For ease of comparison, we will specify the penalisation parameter that results in the selection of 12 variables for <em>clr-lasso</em>.</p>
+<p>To identify the value of <span class="math inline">\(\lambda\)</span> that corresponds to 12 variables selected we implement <em>glmnet()</em> function on the clr transformed values and with the specification that the response family is <strong>binomial</strong>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.test_clrlasso &lt;-<span class="st"> </span><span class="kw">glmnet</span>(<span class="dt">x =</span> clrx_Crohn, <span class="dt">y =</span> y_Crohn_numeric, 
+                              <span class="dt">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="dt">nlambda =</span> <span class="dv">30</span>)</code></pre></div>
+<p>The output of <em>glmnet()</em> can be visualised with the selection plot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Crohn.test_clrlasso, <span class="dt">xvar =</span> <span class="st">&#39;lambda&#39;</span>, <span class="dt">label =</span> T)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:CDlasso"></span>
+<img src="Generated_plots/CDlasso-1.png" alt="Selection plot of Crohn data" width="100%" />
+<p class="caption">
+Figure 3.1: Selection plot of Crohn data
+</p>
+</div>
+<p>In Figure <a href="clr.html#fig:CDlasso">3.1</a>, each curve corresponds to a variable (i.e. genus). It shows the path of its coefficient against different <span class="math inline">\(log(\lambda)\)</span> values. At each <span class="math inline">\(log(\lambda)\)</span>, the shown curves indicate the number of nonzero coefficients. In the plot command, if <strong>label = T</strong>, each curve will be annotated with variable index.</p>
+<p>The numerical output of <em>glmnet()</em> will help us to select the value of <span class="math inline">\(\lambda\)</span>. It provides the number of selected variables or degrees of freedom of the model (Df), the proportion of explained deviance for a sequence of values of <span class="math inline">\(\lambda\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.test_clrlasso</code></pre></div>
+<pre><code>## 
+## Call:  glmnet(x = clrx_Crohn, y = y_Crohn_numeric, family = &quot;binomial&quot;,      nlambda = 30) 
+## 
+##    Df    %Dev   Lambda
+## 1   0 0.00000 0.180900
+## 2   1 0.05653 0.131600
+## 3   1 0.08761 0.095820
+## 4   5 0.12170 0.069750
+## 5  10 0.16810 0.050770
+## 6  14 0.20670 0.036950
+## 7  18 0.24110 0.026900
+## 8  23 0.26910 0.019580
+## 9  25 0.29220 0.014250
+## 10 30 0.30930 0.010370
+## 11 32 0.32030 0.007551
+## 12 36 0.32770 0.005496
+## 13 39 0.33330 0.004001
+## 14 41 0.33690 0.002912
+## 15 44 0.33910 0.002120
+## 16 45 0.34040 0.001543
+## 17 46 0.34110 0.001123
+## 18 46 0.34150 0.000818
+## 19 46 0.34170 0.000595
+## 20 47 0.34190 0.000433
+## 21 47 0.34190 0.000315
+## 22 47 0.34190 0.000230
+## 23 47 0.34200 0.000167
+## 24 47 0.34200 0.000122</code></pre>
+<p>We can see that the value of <span class="math inline">\(\lambda\)</span> that will select 12 variables is between 0.037 and 0.051. We perform again <em>glmnet()</em> with the specification of a finer sequence of <span class="math inline">\(\lambda\)</span> (between 0.03 and 0.05 and an increment of 0.001):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.test2_clrlasso &lt;-<span class="st"> </span><span class="kw">glmnet</span>(<span class="dt">x =</span> clrx_Crohn, <span class="dt">y =</span> y_Crohn_numeric, 
+                               <span class="dt">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="dt">lambda =</span> <span class="kw">seq</span>(<span class="fl">0.03</span>, <span class="fl">0.05</span>, <span class="fl">0.001</span>))
+Crohn.test2_clrlasso</code></pre></div>
+<pre><code>## 
+## Call:  glmnet(x = clrx_Crohn, y = y_Crohn_numeric, family = &quot;binomial&quot;,      lambda = seq(0.03, 0.05, 0.001)) 
+## 
+##    Df   %Dev Lambda
+## 1  10 0.1702  0.050
+## 2  10 0.1729  0.049
+## 3  10 0.1755  0.048
+## 4  10 0.1782  0.047
+## 5  11 0.1808  0.046
+## 6  11 0.1834  0.045
+## 7  11 0.1860  0.044
+## 8  12 0.1885  0.043
+## 9  13 0.1915  0.042
+## 10 14 0.1945  0.041
+## 11 14 0.1976  0.040
+## 12 14 0.2006  0.039
+## 13 14 0.2036  0.038
+## 14 14 0.2065  0.037
+## 15 14 0.2094  0.036
+## 16 14 0.2122  0.035
+## 17 14 0.2150  0.034
+## 18 15 0.2181  0.033
+## 19 18 0.2217  0.032
+## 20 18 0.2257  0.031
+## 21 18 0.2295  0.030</code></pre>
+<p>According to this result, we select <span class="math inline">\(\lambda = 0.043\)</span> and implement <em>glmnet()</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clrlasso_Crohn &lt;-<span class="st"> </span><span class="kw">glmnet</span>(<span class="dt">x =</span> clrx_Crohn, <span class="dt">y =</span> y_Crohn_numeric, 
+                         <span class="dt">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="dt">lambda =</span> <span class="fl">0.043</span>)</code></pre></div>
+<p>The same as <em>selbal</em>, we use function <em>glmnet_wrapper()</em> to handle the results of <em>clr-lasso</em> with the output from <em>glmnet()</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.results_clrlasso &lt;-<span class="st"> </span><span class="kw">glmnet_wrapper</span>(clrlasso_Crohn, <span class="dt">X =</span> clrx_Crohn)</code></pre></div>
+<p>We can get the number of selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.results_clrlasso<span class="op">$</span>numVarSelect</code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>and the names of the selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Crohn.results_clrlasso<span class="op">$</span>varSelect</code></pre></div>
+<pre><code>##  [1] &quot;g__Roseburia&quot;                 &quot;g__Bacteroides&quot;              
+##  [3] &quot;g__Eggerthella&quot;               &quot;f__Peptostreptococcaceae_g__&quot;
+##  [5] &quot;g__Dialister&quot;                 &quot;g__Streptococcus&quot;            
+##  [7] &quot;g__Adlercreutzia&quot;             &quot;g__Aggregatibacter&quot;          
+##  [9] &quot;o__Clostridiales_g__&quot;         &quot;g__Lachnospira&quot;              
+## [11] &quot;o__Lactobacillales_g__&quot;       &quot;g__Bilophila&quot;</code></pre>
+</div>
+<div id="hfhs-day1-case-study-1" class="section level2">
+<h2><span class="header-section-number">3.2</span> HFHS-Day1 case study</h2>
+<p>The analysis on HFHSday1 data is similar to Crohn data. We first perform the clr transformation:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z_HFHSday1 &lt;-<span class="st"> </span><span class="kw">log</span>(x_HFHSday1)
+clrx_HFHSday1 &lt;-<span class="st"> </span><span class="kw">apply</span>(z_HFHSday1, <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">-</span><span class="kw">rowMeans</span>(z_HFHSday1))</code></pre></div>
+<p>The outcome <strong>y_HFHSday1</strong> is converted to a numeric vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y_HFHSday1_numeric &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(y_HFHSday1)</code></pre></div>
+<p>We implement <em>glmnet()</em> and visualise the results (Figure <a href="clr.html#fig:HFHSlasso">3.2</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.test_clrlasso &lt;-<span class="st"> </span><span class="kw">glmnet</span>(<span class="dt">x =</span> clrx_HFHSday1, <span class="dt">y =</span> y_HFHSday1_numeric, 
+                             <span class="dt">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="dt">nlambda =</span> <span class="dv">30</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(HFHS.test_clrlasso, <span class="dt">xvar =</span> <span class="st">&#39;lambda&#39;</span>, <span class="dt">label =</span> T)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:HFHSlasso"></span>
+<img src="Generated_plots/HFHSlasso-1.png" alt="Lasso plot of HFHSday1 data" width="100%" />
+<p class="caption">
+Figure 3.2: Lasso plot of HFHSday1 data
+</p>
+</div>
+<p>The explanation of Figure <a href="clr.html#fig:HFHSlasso">3.2</a> is the same as Figure <a href="clr.html#fig:CDlasso">3.1</a>.</p>
+<p>The numerical output of <em>glmnet()</em> will help us to decide the penalty term <span class="math inline">\(\lambda\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.test_clrlasso</code></pre></div>
+<pre><code>## 
+## Call:  glmnet(x = clrx_HFHSday1, y = y_HFHSday1_numeric, family = &quot;binomial&quot;,      nlambda = 30) 
+## 
+##    Df   %Dev  Lambda
+## 1   0 0.0000 0.47370
+## 2   2 0.1862 0.40420
+## 3   3 0.3290 0.34480
+## 4   3 0.4417 0.29420
+## 5   6 0.5335 0.25100
+## 6   6 0.6089 0.21410
+## 7   7 0.6707 0.18270
+## 8   8 0.7221 0.15590
+## 9   9 0.7649 0.13300
+## 10  9 0.8007 0.11350
+## 11 11 0.8309 0.09680
+## 12 11 0.8564 0.08259
+## 13 10 0.8778 0.07046
+## 14 10 0.8959 0.06011
+## 15 10 0.9113 0.05129
+## 16 10 0.9244 0.04376
+## 17 10 0.9354 0.03733
+## 18 11 0.9449 0.03185
+## 19 10 0.9530 0.02717
+## 20 11 0.9599 0.02318
+## 21 11 0.9657 0.01978
+## 22 11 0.9707 0.01688
+## 23 11 0.9750 0.01440
+## 24 12 0.9786 0.01228
+## 25 12 0.9818 0.01048
+## 26 12 0.9844 0.00894
+## 27 12 0.9867 0.00763
+## 28 12 0.9886 0.00651
+## 29 12 0.9903 0.00555
+## 30 13 0.9917 0.00474</code></pre>
+<p>For comparison purposes we set the penalty term <span class="math inline">\(\lambda\)</span> equal to 0.03 (<strong>lambda = 0.03</strong>) that results in the selection of 10 OTUs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clrlasso_HFHSday1 &lt;-<span class="st"> </span><span class="kw">glmnet</span>(<span class="dt">x =</span> clrx_HFHSday1, <span class="dt">y =</span> y_HFHSday1_numeric, 
+                         <span class="dt">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="dt">lambda =</span> <span class="fl">0.03</span>)</code></pre></div>
+<p>We then use function <em>glmnet_wrapper()</em> to handle the results:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.results_clrlasso &lt;-<span class="st"> </span><span class="kw">glmnet_wrapper</span>(<span class="dt">result =</span> clrlasso_HFHSday1, <span class="dt">X =</span> clrx_HFHSday1) </code></pre></div>
+<p>Then we get the number of selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.results_clrlasso<span class="op">$</span>numVarSelect</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>and the names of selected variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.results_clrlasso<span class="op">$</span>varSelect</code></pre></div>
+<pre><code>##  [1] &quot;400599&quot;  &quot;192222&quot;  &quot;348038&quot;  &quot;401384&quot;  &quot;290253&quot;  &quot;261265&quot;  &quot;300851&quot; 
+##  [8] &quot;462764&quot;  &quot;1108745&quot; &quot;265322&quot;</code></pre>
+<p>We also extract the taxonomic information of these selected OTUs.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HFHS.tax_clrlasso &lt;-<span class="st"> </span>taxonomy_HFHS[<span class="kw">which</span>(<span class="kw">rownames</span>(taxonomy_HFHS) <span class="op">%in%</span><span class="st"> </span>
+<span class="st">                                           </span>HFHS.results_clrlasso<span class="op">$</span>varSelect), ]
+<span class="kw">kable</span>(HFHS.tax_clrlasso[ ,<span class="dv">2</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">booktabs =</span> T)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">Phylum</th>
+<th align="left">Class</th>
+<th align="left">Order</th>
+<th align="left">Family</th>
+<th align="left">Genus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>192222</td>
+<td align="left">Bacteroidetes</td>
+<td align="left">Bacteroidia</td>
+<td align="left">Bacteroidales</td>
+<td align="left">Prevotellaceae</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td>290253</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left">Ruminococcaceae</td>
+<td align="left">Oscillospira</td>
+</tr>
+<tr class="odd">
+<td>261265</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left">Lachnospiraceae</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td>1108745</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left">[Mogibacteriaceae]</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td>462764</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left">Ruminococcaceae</td>
+<td align="left">Ruminococcus</td>
+</tr>
+<tr class="even">
+<td>265322</td>
+<td align="left">Bacteroidetes</td>
+<td align="left">Bacteroidia</td>
+<td align="left">Bacteroidales</td>
+<td align="left">S24-7</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td>400599</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td>348038</td>
+<td align="left">Bacteroidetes</td>
+<td align="left">Bacteroidia</td>
+<td align="left">Bacteroidales</td>
+<td align="left">S24-7</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td>401384</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left">Ruminococcaceae</td>
+<td align="left">Oscillospira</td>
+</tr>
+<tr class="even">
+<td>300851</td>
+<td align="left">Firmicutes</td>
+<td align="left">Clostridia</td>
+<td align="left">Clostridiales</td>
+<td align="left">Ruminococcaceae</td>
+<td align="left">Oscillospira</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-le1992ridge">
+<p>Le Cessie, Saskia, and Johannes C Van Houwelingen. 1992. “Ridge Estimators in Logistic Regression.” <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em> 41 (1). Wiley Online Library: 191–201.</p>
+</div>
+<div id="ref-rivera2018balances">
+<p>Rivera-Pinto, J, JJ Egozcue, Vera Pawlowsky-Glahn, Raul Paredes, Marc Noguera-Julian, and ML Calle. 2018. “Balances: A New Perspective for Microbiome Analysis.” <em>MSystems</em> 3 (4). Am Soc Microbiol: e00053–18.</p>
+</div>
+<div id="ref-tibshirani1996regression">
+<p>Tibshirani, Robert. 1996. “Regression Shrinkage and Selection via the Lasso.” <em>Journal of the Royal Statistical Society: Series B (Methodological)</em> 58 (1). Wiley Online Library: 267–88.</p>
+</div>
+<div id="ref-zou2005regularization">
+<p>Zou, Hui, and Trevor Hastie. 2005. “Regularization and Variable Selection via the Elastic Net.” <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 67 (2). Wiley Online Library: 301–20.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="selbal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="coda.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Microbiome_variable_selection_tutorial.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+<phyloxml xmlns="http://www.phyloxml.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.phyloxml.org http://www.phyloxml.org/1.10/phyloxml.xsd">
+  <phylogeny rooted="true">
+    <clade>
+      <clade>
+        <name>Bacteria</name>
+        <branch_length>1.0</branch_length>
+        <clade>
+          <name>Firmicutes</name>
+          <branch_length>1.0</branch_length>
+          <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+          <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Firmicutes</property>
+          <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+          <clade>
+            <name>Clostridia</name>
+            <branch_length>1.0</branch_length>
+            <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+            <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Clostridia</property>
+            <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+            <clade>
+              <name>Clostridiales</name>
+              <branch_length>1.0</branch_length>
+              <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+              <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Clostridiales</property>
+              <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+              <clade>
+                <name>Ruminococcaceae</name>
+                <branch_length>1.0</branch_length>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Ruminococcaceae</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+                <clade>
+                  <name>Oscillospira</name>
+                  <branch_length>1.0</branch_length>
+                  <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+                  <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Oscillospira</property>
+                  <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+                  <clade>
+                    <name>290253</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">50</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                  </clade>
+                  <clade>
+                    <name>401384</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">25</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_color" ref="A:1">#555555</property>
+                  </clade>
+                  <clade>
+                    <name>300851</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">25</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_color" ref="A:1">#555555</property>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>Ruminococcus</name>
+                  <branch_length>1.0</branch_length>
+                  <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+                  <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Ruminococcus</property>
+                  <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+                  <clade>
+                    <name>462764</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">25</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_color" ref="A:1">#555555</property>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>Lachnospiraceae</name>
+                <branch_length>1.0</branch_length>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Lachnospiraceae</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+                <clade>
+                  <branch_length>1.0</branch_length>
+                  <clade>
+                    <name>261265</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">25</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_color" ref="A:1">#555555</property>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>[Mogibacteriaceae]</name>
+                <branch_length>1.0</branch_length>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#009E73</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">[Mogibacteriaceae]</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+                <clade>
+                  <branch_length>1.0</branch_length>
+                  <clade>
+                    <name>1108745</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">25</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_color" ref="A:1">#555555</property>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <branch_length>1.0</branch_length>
+                <clade>
+                  <branch_length>1.0</branch_length>
+                  <clade>
+                    <name>400599</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">50</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>Bacteroidetes</name>
+          <branch_length>1.0</branch_length>
+          <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#CC79A7</property>
+          <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Bacteroidetes</property>
+          <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+          <clade>
+            <name>Bacteroidia</name>
+            <branch_length>1.0</branch_length>
+            <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#CC79A7</property>
+            <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Bacteroidia</property>
+            <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+            <clade>
+              <name>Bacteroidales</name>
+              <branch_length>1.0</branch_length>
+              <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#CC79A7</property>
+              <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Bacteroidales</property>
+              <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+              <clade>
+                <name>S24-7</name>
+                <branch_length>1.0</branch_length>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#CC79A7</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">S24-7</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+                <clade>
+                  <branch_length>1.0</branch_length>
+                  <clade>
+                    <name>263479</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">50</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">0</property>
+                  </clade>
+                  <clade>
+                    <name>265322</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">50</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                  </clade>
+                  <clade>
+                    <name>348038</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">50</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                  </clade>
+                  <clade>
+                    <name>198339</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">25</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_color" ref="A:1">#555555</property>
+                  </clade>
+                  <clade>
+                    <name>175272</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">25</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_color" ref="A:1">#555555</property>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>Prevotellaceae</name>
+                <branch_length>1.0</branch_length>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_background_color" ref="A:1">#CC79A7</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation" ref="A:1">Prevotellaceae</property>
+                <property applies_to="clade" datatype="xsd:string" id_ref="annotation_font_size" ref="A:1">5</property>
+                <clade>
+                  <branch_length>1.0</branch_length>
+                  <clade>
+                    <name>192222</name>
+                    <branch_length>1.0</branch_length>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#C2C2C2</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#F68B33</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#388ECC</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">50</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">0</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">w</property>
+                    <property applies_to="clade" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1</property>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </clade>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="clade_marker_edge_width" ref="A:1">1.2</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="branch_bracket_depth" ref="A:1">0.8</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="clade_separation" ref="A:1">0.5</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="clade_marker_edge_color" ref="A:1">#555555</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="clade_marker_size" ref="A:1">40</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="branch_thickness" ref="A:1">1.5</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="branch_bracket_width" ref="A:1">0.25</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ignore_branch_len" ref="A:1">1</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__1__ring_internal_separator_thickness" ref="A:1">0.5</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__2__ring_internal_separator_thickness" ref="A:1">0.5</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__3__ring_internal_separator_thickness" ref="A:1">0.5</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__4__ring_internal_separator_thickness" ref="A:1">0.5</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__1__ring_color" ref="A:1">#000000</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__2__ring_color" ref="A:1">#000000</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__3__ring_color" ref="A:1">#000000</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__4__ring_color" ref="A:1">#000000</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__1__ring_label" ref="A:1">selbal</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__2__ring_label" ref="A:1">clr_lasso</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__3__ring_label" ref="A:1">coda_lasso</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__4__ring_label" ref="A:1">outside</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="start_rotation" ref="A:1">270</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="total_plotted_degrees" ref="A:1">340</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__1__ring_label_font_size" ref="A:1">7</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__2__ring_label_font_size" ref="A:1">7</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__3__ring_label_font_size" ref="A:1">7</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__4__ring_label_font_size" ref="A:1">7</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__1__ring_label_color" ref="A:1">#388ECC</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__2__ring_label_color" ref="A:1">#F68B33</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__3__ring_label_color" ref="A:1">#C2C2C2</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__4__ring_label_color" ref="A:1">w</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__1__ring_alpha" ref="A:1">1.0</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__2__ring_alpha" ref="A:1">1.0</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__3__ring_alpha" ref="A:1">1.0</property>
+    <property applies_to="phylogeny" datatype="xsd:string" id_ref="ext__4__ring_alpha" ref="A:1">1.0</property>
+  </phylogeny>
+</phyloxml>
