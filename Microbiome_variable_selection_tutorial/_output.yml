@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Variable selection</a></li>
       after: |
-        <li><a href="https://github.com/EvaYiwenWang/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
+        <li><a href="https://github.com/UVic-omics/Microbiome-Variable-Selection/tree/master/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
     download: ["pdf"]
 bookdown::pdf_book:
   includes:

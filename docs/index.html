@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-04-01" />
+<meta name="date" content="2020-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,7 +141,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/EvaYiwenWang/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
+<li><a href="https://github.com/UVic-omics/Microbiome-Variable-Selection/tree/master/Microbiome_variable_selection_tutorial" target="blank">Source codes on github</a></li>
 
 </ul>
 
@@ -169,7 +169,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 and Statistics, The University of Melbourne, Parkville VIC, Australia
 <span class="math inline">\(^3\)</span>Biosciences Department, Faculty of Sciences and Technology,
 University of Vic - Central University of Catalonia, Vic, Spain</div></em></p>
-<p class="date"><em>2020-04-01</em></p>
+<p class="date"><em>2020-04-02</em></p>
 </div>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
@@ -181,11 +181,12 @@ University of Vic - Central University of Catalonia, Vic, Spain</div></em></p>
 </ul>
 <p>Among them, <em>coda-lasso</em> is not yet available as an R package, but the R code for implementing the algorithm is available on Github: <a href="https://github.com/UVic-omics/CoDA-Penalized-Regression" class="uri">https://github.com/UVic-omics/CoDA-Penalized-Regression</a>. Therefore, let us copy the repository first. We only need to copy once, after that, we can update it by fetching the last modified version.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># copy the repository from https://github.com/UVic-omics/CoDA-Penalized-Regression</span>
-<span class="co"># system(&#39;git clone https://github.com/UVic-omics/CoDA-Penalized-Regression&#39;)</span>
+<span class="kw">system</span>(<span class="st">&#39;git clone https://github.com/UVic-omics/CoDA-Penalized-Regression&#39;</span>)
 
 <span class="co"># fetch the last modified repository from </span>
 <span class="co"># https://github.com/UVic-omics/CoDA-Penalized-Regression</span>
-<span class="kw">system</span>(<span class="st">&#39;git pull https://github.com/UVic-omics/CoDA-Penalized-Regression&#39;</span>)</code></pre></div>
+<span class="co"># when you have already git clone the repository</span>
+<span class="co"># system(&#39;git pull https://github.com/UVic-omics/CoDA-Penalized-Regression&#39;)</span></code></pre></div>
 <p>This vignette only displays the application of all methods on the case studies. Paper related codes and datasets including simulations are all available on GitHub: <a href="https://github.com/UVic-omics/Microbiome-Variable-Selection" class="uri">https://github.com/UVic-omics/Microbiome-Variable-Selection</a></p>
 <div id="packages-installation-and-loading" class="section level2">
 <h2><span class="header-section-number">1.1</span> Packages installation and loading</h2>
