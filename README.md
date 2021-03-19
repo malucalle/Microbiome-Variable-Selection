@@ -24,6 +24,6 @@ computationally efficient and suitable when the focus is the identification of t
 associated microbial taxa. Selbal stands out when the goal is to obtain a parsimonious model
 with optimal prediction performance, but it is computationally greedy. We provide a
 reproducible vignette for the application of these methods that will enable researchers to fully
-leverage their potential in microbiome studies.
+leverage their potential in microbiome studies
 
 rbookdown tutorial: https://UVic-omics.github.io/Microbiome-Variable-Selection/
