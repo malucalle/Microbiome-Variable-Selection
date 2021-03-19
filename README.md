@@ -26,4 +26,4 @@ with optimal prediction performance, but it is computationally greedy. We provid
 reproducible vignette for the application of these methods that will enable researchers to fully
 leverage their potential in microbiome studies
 
-rbookdown tutorial: https://UVic-omics.github.io/Microbiome-Variable-Selection/
+rbookdown tutorial: https://malucalle.github.io/Microbiome-Variable-Selection/
